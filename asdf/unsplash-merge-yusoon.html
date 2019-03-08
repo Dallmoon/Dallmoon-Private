@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Beautiful Free Images & Pictures | Unsplash</title>
+    <link rel="shortcut icon" href ="./favicon (1).ico">
+    
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <style>
+    .v-line{
+          border-right: 0.2px solid rgb(177, 177, 177);
+        }
+        .navbar-brand {
+          font-size: 0.9em;
+        }
+        .nav-item.nav-link.active{
+          border-bottom: 0.1em solid black
+        }
+        .nav-link.active{
+          color:black;
+        }
+        .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 1rem;
+        }
+        .collapse.navbar-collapse.scroll{
+          padding-left: 1rem;
+          font-size: 0.9em;
+          overflow: auto;
+          white-space: nowrap;
+        }
+        .nav-item.nav-link{
+          display:inline-block;
+        }
+        
+        ::-webkit-scrollbar{
+          height: 5px;
+          
+        }
+        ::-webkit-scrollbar-track{
+          background: white;
+        }
+
+        ::-webkit-scrollbar-thumb{
+          background: rgb(201, 201, 201);
+          border-radius: 5px;
+        }
+        #nav-con{
+          padding:0;
+        }
+        .bg-light {
+        background-color: white!important;
+        }
+    a {
+      text-decoration: none !important;
+    }
+    .home{
+      color:black;
+    }
+    li.Dallmoon{
+      border: 0.5px gainsboro;
+      border-right-style : none;
+      border-bottom-style : none;
+      border-top-style : none;
+      border-left-style : solid;
+    
+      
+    }
+    .form-group{
+          margin: 1rem;
+        }
+        .form-control {
+          display: inline-block;
+          font-size: 0.9em;
+          color: #495057;
+          background-color: #efefef;
+          border: 1px solid white;
+          border-radius: 1.5rem;
+          padding: 1.5em .75rem;
+          padding-left: 3em;
+        }
+        .cover_img {
+                background-image: url("https://images.unsplash.com/photo-1551623063-1f1630813273?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+                background-color: gray;
+                background-blend-mode: multiply;
+                height: 600px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+                line-height: 150%;
+                margin-bottom: 40px;
+            }
+            .cover_text {
+                text-align: left;
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                transform: translate(-70%, 40%);
+                color: white;
+            }
+            input {
+                border-radius: 8px;
+                width: 150%;
+                height: 50px;
+                color: gray;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            .images {
+                border: 0;
+                float: left;
+                width: 33.33%;
+                padding: 10px;
+            }
+            .album {
+                content: "";
+                clear: both;
+                display: table;
+                margin-right: 40px;
+                margin-left:  40px;
+            }
+   </style> 
+
+
+  </head>
+  <body>
+   <div class="sticky-top"> 
+    <div> 
+      <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+        <table>
+            <tr>
+            <td><a href= https://unsplash.com><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAMAAAAPdrEwAAAAS1BMVEX///8pKSmPj48bGxsAAACUlJSwsLARERGpqakkJCTi4uJJSUnLy8sODg68vLxpaWmBgYHb29uJiYkvLy80NDT09PTs7OxhYWF7e3u6C2nZAAAAlklEQVRYhe3WywrCMBBG4UwTe9FEbbTq+z+pS5MRpIEBCz3f9oezykCcAwAAO7FE5WGWnoNyNkxLJZEmTfpv6VQxPHR3VBa7NKDMY+nrGcdqjk3pMQwf4annVzV3Tel+KO56uuj56ovZH9rSiTRp0nbpbJWW20m5i1VaJkXs0j+RJk3a9cGv1vhZiLlbLRt+5AEAwNa8AZ4qEH/K9rgIAAAAAElFTkSuQmCC" width="80px" title="Unsplash Home"></a></td>
+            <td>
+              <a href= https://unsplash.com/ >
+              <div><span title="Home ─ Unsplash">
+                <div><b class="home"  >Unsplash</b>
+                  <br><span class = "home" style=font-size:12px>Photos for everyone</span>
+                </span>
+              </div>
+              </a></td>
+            </tr>
+        </table>
+        <div class="form-group"><form>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Search free high-resolution photos" size="45" title="Search Unsplash"></form>
+        </div>
+         
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+           
+           <li class="nav-item">
+              <a class="nav-link" href="https://unsplash.com/collections"
+              style = margin-left:10px >Collections
+              </a>
+            </li>
+            <li class="nav-item" style=margin-left:10px>
+              <a class="nav-link" href="https://unsplash.com/explore" style = margin-right:10px>Explore</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ...
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+              <li>
+                  <a href ="https://unsplash.com/login"><button type="button" class="btn btn-outline-secondary" style ="margin-left:30px; margin-right:30px" >Submit a photo</button>
+                  </a>
+              </li>
+
+               <div>
+                 <li class="nav-item Dallmoon">
+                <a class="nav-link Dallmoon" href="https://unsplash.com/login"
+              style = margin-left:0px;margin-right:0px; >Login</a>
+               </li>
+              </div>
+               <li> 
+                 <a href ="https://unsplash.com/join"><button type="button" class="btn btn-success">
+                   Join Free
+                 </button></a>
+               </li>
+
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    
+  
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="v-line">
+          <a class="navbar-brand nav-item nav-link active" href="">Editorial<span class="sr-only">(current)</span></a>
+        </div> 
+          <div class="collapse navbar-collapse scroll">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="https://unsplash.com/t/wallpapers">Wallpapers</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/textures-patterns">Textures & Patterns</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/nature">Nature</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/current-events">Current Events</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/architecture">Architecture</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/business-work">Business & Work</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/animals">Animals</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/travel">Travel</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/fashion">Fashion</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/food-drink">Food & Drink</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/spirituality">Spirituality</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/experimental">Experimental</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/people">People</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/health">Health</a>
+              <a class="nav-item nav-link" href="https://unsplash.com/t/arts-culture">Arts & Culture</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="cover_img">
+      <div class="cover_text">
+          <h1 style="font-size: 50px">
+          Unsplash</h1>
+          <p>Beautiful, free photos.<br>
+          Gifted by the world's most generous 
+          community of photographers.🎁</p>
+          
+          <form>
+              <input type="search" value="Search free high-resolution photos">
+          </form>
+          <br>
+          <span>Trending searches:</span>
+          <a style="color: white;" href="https://unsplash.com/search/photos/business">business,<a>
+          <a style="color: white;" href="https://unsplash.com/search/photos/computer">computer,</a>
+          <a style="color: white;" href="https://unsplash.com/search/photos/nature">nature</a>
+      </div>
+  </div>
+
+  <!-- 이미지 -->
+  <div class="album"> 
+      <div class="images">
+          <img src="mycats/2.jpg" alt="image" style="width: 100%">
+      </div>
+      <div class="images">
+          <img src="mycats/5.jpg" alt="image" style="width: 100%">
+      </div>
+      <div class="images">
+          <img src="mycats/18.jpeg" alt="image" style="width: 100%">
+      </div>
+      <div class="images">
+          <img src="mycats/7.jpg" alt="image" style="width: 100%">
+      </div>
+      <div class="images">
+          <img src="mycats/10.jpg" alt="image" style="width: 100%">
+      </div>
+      <div class="images">
+          <img src="mycats/12.jpg" alt="image" style="width: 100%">
+      </div>
+      <div class="images">
+          <img src="mycats/14.jpeg" alt="image" style="width: 100%">
+      </div>
+      <div class="images">
+           <img src="mycats/15.jpeg" alt="image" style="width: 100%">
+      </div>
+      <div class="images">
+          <img src="mycats/16.jpeg" alt="image" style="width: 100%">
+      </div>
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
