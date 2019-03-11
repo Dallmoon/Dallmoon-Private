@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="gugudan"></div>
+    <script>
+    //while - 어떤 조건이 맞춰질 떄 까지 계속 할거야~
+    //for - 몇 횟수까지 계속할거야~
+
+        /* break :만나는 순간 가장 가까운 반복문을 탈출
+        contine : 만나는 순간 반복문의 다음 회차로 이동
+        */
+
+        //for ,while
+        //메뉴 구현
+        //1. 구구단 출력
+        // 몇단을 출력할까요?
+        // 2. 프로그램 종료
+
+
+    while(true){
+        console.log("메뉴");
+        console.log("1. 숫자입력");
+        console.log("2. 문자입력");
+        menu = prompt ("메뉴를 선택하세요", "1");
+        if (menu=="1"){
+            console.log ("구구단 출력"); 
+          gugudan = prompt ("몇단을 출력할까요?","")
+           
+         /*  if (gugudan=="2")
+           for (number=1; number<=81; number*=2)
+            console.log(number);
+            if (gugudan=="3")
+           for (number=1; number<=81; number*=3)
+            console.log(number);
+            if (gugudan=="4")
+           for (number=1; number<=81; number*=4)
+            console.log(number);
+            if (gugudan=="5")
+           for (number=1; number<=81; number*=5)
+            console.log(number);
+            if (gugudan=="6")
+           for (number=1; number<=81; number*=6)
+            console.log(number);
+            if (gugudan=="7")
+           for (number=1; number<=81; number*=7)
+            console.log(number);
+            if (gugudan=="8")
+           for (number=1; number<=81; number*=8)
+            console.log(number);
+            if (gugudan=="9")
+           for (number=1; number<=81; number*=9)
+            console.log(number);*/
+            
+            //*=은 결과값에 계속 곱하는거다. 제곱이나 다를 바 없음
+
+            for (i=2; i<=9;i++){
+                console.log (gugudan+"x"+i+"="+(gugudan*i));
+            }
+
+
+        }
+        else if (menu=="2"){
+            console.log ("프로그램 종료")
+        
+        } break;
+    }
+
+    </script>
+</body>
+</html>

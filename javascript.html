@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <tilte>
+            title
+        </tilte>
+        <!-- 자바스크립트 파일 붙여놓는 곳-->
+        <script type="text/javascript">
+           
+           //프로그래밍 진행 방법
+           //순차: 코드에 위에서 부터 아래쪽으로 한 줄 씩 실행된다.
+           //분기: A를 실행할 지 B를 실행하지 선택하는 것 (조건에 따라서)
+           //반복: A,B중에 실행할 코드를 여러번 반복실행하고 싶을 떄
+        </script>
+    </head>
+    <body>
+        <div id="content"></div>
+
+        <span id ="number1"></span>+<span id ="number2"></span>=<span id = "number3"></span>
+
+        <script>
+             var number1 = prompt("숫자를 입력하세요.", "1을 입력하세요");
+             var number2 = prompt("숫자를 입력하세요.", "2를 입력하세요");
+
+             if (number1 != null) {
+                document.getElementById("number1").innerHTML =
+                number1;
+                }
+                if (number2 != null) {
+                document.getElementById("number2").innerHTML =
+                number2;
+                }
+
+                var number3 = Number(number1)+Number(number2);
+                document.getElementById("number3").innerHTML =
+                number3;
+
+
+
+                /*문자연산자 : +
+                산술연산자 : + - * / % **
+
+                숫자-> 문자, 문자 -> 숫자 : Type Casting 형 변환
+
+                Number 숫자
+                String 문자
+                Boolean 참,거짓
+                null 아무값도 없다
+                undefined 정의되지 않았다
+
+                타입 이름 (바꿀 애) 앞에 붙는 타입이름은 생산자라고도 불림.
+
+                %는 나머지를 의미한다.
+                **: 제곱
+                */
+
+
+                
+                //content 라는 아이디 안에 무엇을 넣을거니?
+                </script>
+
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <!--사용자의 키, 체중을 입력받아서 BMI 수치를 계싼해서 보여주는 페이지를 작성한다.
+        BMI는 체중 / 키(m)의 제곱  키*0.01 **2
+
+        1.체중을 입력받는다.
+        2.신장을 입력받는다.
+        3.형 변환을 한다.
+        4.BMI계산을 한다.
+        5. 18.5 미만 저체중
+           18.5~23미만 정상
+           23~ 과체중
+
+           [조건식]&& [조건식] and
+           [조건식] || [조건식] or
+    
+        ****** 소괄호만 사용가능!!
+        연산자 우선순위: 
+        **
+        * / %
+        + -
+    -->
+    <div id = "BMI"></div>
+    <div id ="level"></div>
+    <script>
+       /*
+             var number1 = prompt("체중을 입력하세요.", "");
+             var number2 = prompt("키를 입력하세요.", "");
+
+             if (number1 != null) {
+                document.getElementById("number1").innerHTML =
+                number1;
+                }
+                if (number2 != null) {
+                document.getElementById("number2").innerHTML =
+                number2;
+                }
+
+                var number3 = Number(number1)/((Number(number2)/100)**2);
+                document.getElementById("number3").innerHTML =
+                number3; */
+
+                var weight = prompt ("체중을 입력하세요","");
+                var height = prompt ("신장을 입력하세요","");
+
+                weight = Number(weight);
+                height = Number(height)/100;
+
+                var BMI = weight/height**2;
+                if (weight !=null) {
+                document.getElementById("BMI").innerHTML =
+                BMI;}
+                
+                if (BMI<18.5) {
+                    alert("저체중")
+                } else if (BMI>=23){
+                    alert("과체중")
+                } else {
+                    alert("정상")
+                }
+                // 18.5 아래인애들은 걸렀으니 18.5 이상은 안써도된다.
+                //(18.5 <= BMI <23 js는 안되지만 타 언어는 가능.)
+
+           
+                
+    </script>
+    </body>
+</html>

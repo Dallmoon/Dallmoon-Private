@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    <style>
+    div{
+        display: inline;
+    }
+    </style>
+</head>
+<body>
+    <form action=".degree_Celsius">
+        섭씨:<input name="Celsius">
+        화씨:<div id="Fahrenheit"></div>
+        
+
+    </form>
+    <form action=".degree_Fahrenheit">
+        화씨:<input name="Fahrenheit">
+        섭씨:<input id ="Celsius">
+
+    </form>
+    <script>
+        if(form=".degree_Celsius"){
+            Celsius=Number(Celsius);
+            Fahrenheit=Number(Fahrenheit);
+    
+            var Fahrenheit = (Celsius *(9/5)) + 32 ;
+            document.getElementById("Fahrenheit").innerHTML =
+                Fahrenheit;
+
+        if (form=".degree_Fahrenheit")
+            var Fahrenheit = 
+            elsius=Number(Celsius);
+            Fahrenheit=Number(Fahrenheit);
+
+            var Celsius = (Fahrenheit -32)*(5/9);
+            document.getElementById("Celsius").innerHTML =
+                Celsius;
+            
+        }
+    
+    </script>
+           
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>03_11repo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+
+
+    <!--1.섭씨-화씨 36.5-> 90~
+        2.화씨-섭씨 90~
+        *이전에 변환한 기록이 있으면 해당 기록을 반환.
+        1번돌리고 2번가면 원래 값 반환,
+        *상태를 저장할 줄 알아야함.
+        *반환을 하면 기록 말소
+        *flag기법 =undefined, null
+        3.프로그램 종료하기.
+        콘솔값에 나타나도 됨
+
+        level 2.
+
+        메뉴를 html로 구현
+
+        1.섭-화
+        2.화-섭
+        3.프종
+
+        결과값 html에 구현-->
+</head>
+<body>
+        (0°C × 9/5) + 32 = 32°F<br>
+        (32°F − 32) × 5/9 = 0°C
+        <div id="degree"></div>
+       
+
+        <script>
+            while(true) {
+                 menu=prompt("변환 타입을 선택해주세요","")
+                 console.log("1.섭씨-화씨")
+                console.log("2.화씨-섭씨")
+                console.log("3.프로그램 종료")
+                
+           
+
+
+            if (menu=="1"){
+                var Celsius=prompt("섭씨 온도를 입력해주세요",""); 
+                Celsius=Number(Celsius);
+                Fahrenheit=Number(Fahrenheit);
+
+                var Fahrenheit =  (Celsius *(9/5)) + 32    ;
+                console.log(Fahrenheit)      
+                
+                inmenu=prompt("초기값을 반환받으시겠습니까?","")
+                if (inmenu=="1"){
+                console.log(Celsius)
+                }
+                else {
+                    break;
+                }
+                
+            } 
+            else if (menu=="2"){
+                var Fahrenheit=prompt("화씨 온도를 입력해주세요","");
+                Celsius=Number(Celsius);
+                Fahrenheit=Number(Fahrenheit);
+
+                var Celsius = (Fahrenheit -32)*(5/9)
+                console.log(Celsius)
+            
+                inmenu=prompt("초기값을 반환받으시겠습니까?","")
+                if (inmenu=="1"){
+                console.log(Fahrenheit)
+                }
+                else {
+                    break;
+                }
+            }    
+            
+
+            
+            
+            else {
+                console.log("프로그램 종료")
+            }break;
+        }
+        
+        </script>
+
+
+    
+</body>
+</html>
