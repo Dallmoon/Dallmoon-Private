@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSS Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <style>/* 셀렉터의 우선순위
+            태그 -> 클래스 -> 아이디
+            simple -> complex
+            */
+    .test{
+        color:red; /*요소의 텍스트 색상 , 또한 순차적용*/
+        color:rgb(160,136,43);
+        color: rgba(150,136,44,0.2)/* alpha = 색상 투명도*/;
+        opacity: 0.5/*요소의 불투명도*/ ;
+    }
+    
+    .element{
+        background:url("sprite .png")/*현재 폴더부터 무조건 경로지정해야됨*/ no-repeat;
+        height: 25px;
+        width: 25px;
+        background-position: -77px -159px;
+        display: inline-block;
+        overflow: hidden;
+        text-indent: -999px;
+       /*border: 1px solid #d5d5d5;
+        border-radius: 15px 20px 7px 3px;
+        padding:0px; /*상하좌우*/
+        /*padding:0px 5px; /*상하 좌우*/
+        /*padding:0px 5px 7px /*상 좌우 하*/;
+        /*padding:0px 5px 7px 2px /* 상 우 하 좌*/;
+        /*box-shadow:1px 1px 1px 1px red; /*x좌표 y좌표 블러정도 원형정도*/
+        /*margin:0px; /*다른 요소와의 거리*/
+        /* margin-left:0px ;상하좌우 별도의 속성값이 존재함*/
+        /* padding L 해당 요소안에 있는 컨텐츠 영역의 여백*/
+
+        
+        /* width, height를 가지고 요소의 크기를 결정하려면 display가 block 형태여야 한다.
+        min-width, max-width
+        min-height, max-height*/
+
+        /*vertical -align : 수직정렬*/
+        /*vertical-align: middle;
+        overflow:hidden;
+        z-index:3;/*수치가 높을 수록 위에 쌓인다.*/
+
+        
+    }
+    .element_hover{
+        background-position: -51px -159px;
+    }
+    .element_visited{
+        background-position: -26px -159px;
+    }
+    
+    /* .클래스:기능*/
+    /* .클래스 대단원{
+        백그라운드 이미지
+        width
+        height
+        디스플레이: 인라인-블록
+        백그라운드 포지션
+        오버플로우: 히든 
+        visible : 박스를 넘어가도 보여줍니다.
+hidden : 박스를 넘어간 부분은 보이지 않습니다.
+scroll : 박스를 넘어가든 넘어가지 않든 스크롤바가 나옵니다.
+auto : 박스를 넘어가지 않으면 스크롤바가 나오지 않고, 박스를 넘어갈 때에는 스크롤바가 나옵니다.
+initial : 기본값으로 설정합니다.
+inherit : 부모 요소의 속성값을 상속받습니다.
+
+        텍스트-인덴트 : -999 (보통)*/
+
+
+
+    /* 백그라운드: 커버: 전체화면 컨테이너: 요소 안에 */
+    /*엘레먼트:
+    호버 : 마우스 올라왔을때
+    visited : 링크 처음 클릭했을 때*/
+    /* 버튼 사이즈 25px ,23px 
+    검정 이미지 위치 : -26px -159px*/
+
+    
+    
+    </style>
+    
+    
+
+   <a href="#" ><div class="element"></div></a>
+
+   <script>
+      /*셀렉터 설정, 클래스값 혹은 아이디값을 넣으세요*/$( '.element').hover(
+  function(e) {
+      e.preventDefault
+    $( this ).addClass( 'element_hover' );
+  }, function() {
+    $( this ).removeClass( 'element_hover' );
+  }
+);
+    $( ".element" ).click(
+  function(e) {
+      e.preventDefault();
+    $( this ).toggleClass( "element_visited" );
+  }
+);
+
+
+/*add class=클래스 더하기*/
+
+   </script>
+
+
+
+
+
+
+
+
+
+
+
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
