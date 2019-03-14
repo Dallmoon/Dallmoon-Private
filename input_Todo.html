@@ -1,0 +1,25 @@
+값을 추가
+$(요소).html ($(요소).html()+"추가 값")
+$('#test_ul').append("<li>mango</li>") 맫 뒤에 부착
+$('#test_ul').prepend("<li>mango</li>") 맨 앞에 부착
+클래스를 추가할땐 $(".클래스")
+
+element-tr "class"
+
+<tr class="new_list">
+    <input type="checkbox" aria-label="Checkbox for following text input">
+    <td><input type="text"></td>
+    <td><input type="text"></td>
+    <td><input type="text"></td>
+    <td><input type="text"></td>
+</tr>
+
+<input type="submit" value="가입 완료">
+
+
+<script>
+    $("button") .submit(function(){
+        $('#list').append($(".new_list"));
+    });
+
+</script>
