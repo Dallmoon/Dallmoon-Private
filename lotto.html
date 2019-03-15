@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- 로또 번호는 1~45까지의 정수 중에서  중복되지 않는 숫자 6개를 뽑는 게임.
+    로또 용지 1장은 최대 5게임을 표현 가능
+    1게임 1천원 최대 1장은 5천원
+    1)로또 번호 1게임을 뽑게 해준다.
+    2)로또번호 5게임을 뽑게 해준다.
+    3) 로또 번호를 지정된 게임 수만큼 뽑게 해준다.
+    4) 지정된 게임 수 만큼 뽑고, 비용을 함께 출력한다.-->
+
+    <script>
+        /*Math.floor()
+        Math.random(); //0~1사이의 숫자를 랜덤하게
+        Math.floor((Math.random()*10)+1);
+        // 1~10 사이의 점수를 뽑아주는 코드*/
+        // 1. ~ 20.@
+        //.floor - 내림 (반올림 x)
+       
+      for(i=0; i<5; i++){
+        var numbers =[];
+         
+        while(numbers.length<6){
+        var number = (Math.floor((Math.random()*45)+1)) //[] 는 array임. 안에 들어간애를 정렬된 뭔가로 인식하니 넘버에선 객체가 1개로 취급.
+        if(numbers.indexOf(number)==-1)/*위치값을 찾는것*/{
+            numbers.push(number);
+            // ~에 .동사 (목적어)
+            //indexOF =위치를 찾는다
+        //컴퓨터 상으로 위치는 1~ 이 아니라 0~임.
+        // 위치가 -1일 수가 없다.
+        }}
+        numbers.sort (function(a,b){return a-b});
+
+        console.log (numbers);
+       }
+
+       var original_numbers = []; //기본 숫자 배열 (1~45)
+       for (i=1; i<46; i++) {
+           original_numbers.push(i);
+       }
+       var numbers =[]; //추첨되는 숫자 배열 (6개)
+       
+           for (i=0;i<6;i++){
+           var number_index = Math.floor((Math.random()*original_numbers.length));
+           var get_number = original_numbers [number_index]; //오리지널 넘버스에 넘버 인덱스에 해당하는 위치를 찾음
+           numbers.push(get_number); //숫자는 절댓값
+           original_numbers.splice(number_index,1);//(  위치값   ,from 몇개를 지움)
+       }
+       numbers.sort(function(a,b){return a-b});
+       console.log(numbers);
+       
+    </script>
+</body>
+</html>
