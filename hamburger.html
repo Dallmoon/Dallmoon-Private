@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        .main-menu{
+            
+            display:inline-block;
+            background-color:#d5d5d5;
+            line-height: 25px;
+            width:25%;
+            
+            margin:0px;
+            float:left;
+        
+        }
+        .smenu{
+           display: none;
+           margin:0px;
+           width:auto;
+           
+        }
+        .menu-bar{
+            
+            margin:0px;
+            padding:0px;
+            
+            
+            width:auto;
+            
+        }
+        ol{
+            padding-left:20px;
+        }
+
+        .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+    </style>
+</head>
+<body>
+
+        <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="javascript:void(0)">About</a>
+                <a href="javascript:void(0)">Services</a>
+                <a href="javascript:void(0)">Clients</a>
+                <a href="javascript:void(0)">Contact</a>
+              </div>
+              <span style="font-size:30px;cursor:pointer;position: fixed" onclick="openNav()">&#9776; open</span>
+
+    <ul class="menu-bar menu">
+        <li class="main-menu">
+            menu01
+            <ol class="smenu">
+                    <li>menu</li>
+                    <li>menu</li>
+                    <li>menu</li>
+         
+         
+                 </ol>
+        </li>
+    
+    <li class="main-menu">
+            menu02
+            <ol class="smenu">
+                    <li>menu</li>
+                    <li>menu</li>
+                    <li>menu</li>
+         
+         
+                 </ol>
+        </li> 
+        <li class="main-menu">
+                menu03
+                <ol class="smenu">
+                        <li>menu</li>
+                        <li>menu</li>
+                        <li>menu</li>
+             
+             
+                     </ol>
+            </li> <li class="main-menu">
+                    menu04
+                    <ol class="smenu">
+                            <li>menu</li>
+                            <li>menu</li>
+                            <li>menu</li>
+                 
+                 
+                         </ol>
+                </li>
+                </ul>
+
+                
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                <div>adfasdf</div>
+                
+
+                
+    
+
+    <script>
+
+        //mouseover,mouseout:자식 엘레먼트에 접근했을 떄도 동작
+        //mouseenter, mouseleave 자식 엘리먼트에는 동작하지않음.
+        $('.menu').mouseover(function(){
+            $('.smenu').show()
+        });
+        $('.menu').mouseout(function(){
+            $('.smenu').hide()
+        });
+        $('.smenu').mouseout(function(){
+            $('.smenu').hide()
+        }); $('.smenu').mouseover(function(){
+            $('.smenu').show()
+        });
+
+        function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+
+      
+     
+      
+      
+      
+      
+</body>
+</html>

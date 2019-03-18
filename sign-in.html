@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <style>
+        .form-control{
+            display: inline-block;
+            padding: 5px;
+            margin: 5px;
+            width:40%;
+        }
+    </style>
+</head>
+<body>
+    
+    <input class="form-control" type="text" name="이름"  placeholder="이름" id="name">
+    <input class="form-control" type="email" name="이메일"  placeholder="이메일" id="email">
+    <input class="form-control password1" type="password" name="password1" placeholder="비밀번호">
+    <input class="form-control password2" type="password" name="password2" placeholder="비밀번호확인">
+    <input class="form-control" type="text" id="text_doro" name="address" placeholder="도로명 주소" >
+    <input class="form-control" type="text" id="text_jibunjuso" placeholder="지번 주소" >
+    <input class="form-control" type="text" id="text_zonecode" placeholder="우편번호" >
+    <input class="form-control" type="text" id="text_postcode" placeholder="구 우편번호" > 
+    <input class="form-control" type="text" id="text_specificjuso" placeholder="상세주소" >
+    
+    <button id="zipcode_search" class="btn btn-primary">우편번호 찾기</button>
+    <input type="submit" value="회원가입" class="submit_button btn btn-primary">
+    
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">가입 완료!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <ul class="modal-body">
+             
+            </ul>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
+    
+    <script>
+    $(function(){
+        $('#zipcode_search').click(function(){
+            new daum.Postcode({
+        oncomplete: function(data) {
+            document.getElementById("text_doro").value = data.roadAddress;
+            document.getElementById("text_zonecode").value = data.zonecode;
+            document.getElementById("text_postcode").value = data.postcode;
+            document.getElementById("text_jibunjuso").value = data.jibunAddress;
+            
+            
+
+            
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+        }
+    }).open();
+        })
+    }); 
+
+        $('.submit_button').click(function validateForm(){
+            
+                var name = $('#name').val();
+               var email = $('#email').val();
+               var password1 = $('.password1').val();
+               var password2 = $('.password2').val();
+               var text_doro = $('#text_doro').val();
+               var text_jibunjuso = $('#text_jibunjuso').val();
+               var text_zonecode = $('#text_zonecode').val();
+               var text_postcode = $('#text_postcode').val();
+
+               if (name == '') {
+                    alert ("이름을 입력해주세요."); return false ;
+                }
+
+               if (email == '') {
+                    alert ("이메일을 입력해주세요."); return false ;
+                }
+
+                if (password1 == '') {
+                    alert ("비밀번호를 입력해주세요."); return false ;
+                }
+                
+                if (password2 == '') {
+                    alert ("확인 비밀번호를 입력해주세요."); return false ;
+                }
+                     
+                if (password1 != password2)  {
+                    alert ("비밀번호가 일치하지 않습니다."); return false ;
+                } 
+                
+            
+                if (text_doro == '' && text_jibunjuso == '') {
+                    alert ("주소를 입력해주세요."); return false ;
+                }
+
+                if (text_zonecode == '' && text_postcode == '') {
+                    alert ("우편 번호를 입력해주세요."); return false ;
+                }
+                var pwdReg = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+ 
+                    if(!pwdReg.test(password2)) {
+                       console.log()
+                        alert('비밀번호 형식이 올바르지 않습니다.');
+                        return false;
+                    }
+
+
+
+            
+                
+  
+                
+                else{ 
+                      var a = $("#name").val()
+                      var b = $("#email").val()
+
+                      alert(
+                          "이름"+":"+a+"\n"+
+                          "이메일"+":"+b+"\n"+
+                          "비밀번호"+":"+password2
+
+                          
+                      )
+                }
+
+                      
+                      
+                
+            })
+
+            
+
+          
+               
+                
+        
+
+ 
+
+     </script>
+    
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
