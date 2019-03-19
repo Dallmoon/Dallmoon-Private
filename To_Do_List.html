@@ -8,22 +8,47 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
-      input{
-        border-radius: 5px;
-        border-color:blue;
+      
+      thead{
+        background: rgb(55,44,158);
+        background: -moz-linear-gradient(-45deg, rgba(55,44,158,1) 36%, rgba(67,28,102,1) 100%);
+        background: -webkit-linear-gradient(-45deg, rgba(55,44,158,1) 36%,rgba(67,28,102,1) 100%);
+        background: linear-gradient(135deg, rgba(55,44,158,1) 36%,rgba(67,28,102,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#372c9e', endColorstr='#431c66',GradientType=1 );
+        
       }
+      th {
+        color: aliceblue;
+      }
+      body{
+        background: rgb(233,246,253);
+background: -moz-linear-gradient(left, rgba(233,246,253,1) 0%, rgba(211,238,251,1) 100%);
+background: -webkit-linear-gradient(left, rgba(233,246,253,1) 0%,rgba(211,238,251,1) 100%);
+background: linear-gradient(to right, rgba(233,246,253,1) 0%,rgba(211,238,251,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9f6fd', endColorstr='#d3eefb',GradientType=1 );
+      }
+      input{
+        text-align: center;
+        border:none;
+        
+      
+      }
+      .line{
+        background-color: azure;
+      }
+     
     </style>
 </head>
 <body>
       <form class="form" action="./To_Do_List.html">
         <table class="table" style="text-align:center">
-                <thead class="thead-dark">
+                <thead>
                   <tr>
-                    <th scope="col">To-Do-List</th>
-                    <th scope="col">기간</th>
-                    <th scope="col">할 일</th>
-                    <th scope="col">중요도</th>
-                    <th scope="col">기타</th>
+                    <th>To-Do-List</th>
+                    <th>기간</th>
+                    <th>할 일</th>
+                    <th>중요도</th>
+                    <th>기타</th>
                   </tr>
                 </thead>
                 <tbody id="list">
@@ -37,11 +62,11 @@
               <tr>
                 
                   
-                  <td> <input type="submit" value="일정 추가 +" class="btn"> </td>
-                 <td> <input type="date" placeholder="기간" name="day"></td>
-                 <td> <input type="text" placeholder="할 일" name="do"> </td>
-                 <td> <input type="number" placeholder="중요도" name="important"> </td>
-                 <td> <input type="text" placeholder="기타" name="etc"> </td>
+                  <td> <input  type="submit" value="일정 추가 +" class="btn btn-light"> </td>
+                 <td> <input  type="date" placeholder="기간" name="day"></td>
+                 <td> <input  type="text" placeholder="할 일" name="do"> </td>
+                 <td> <input  type="number" placeholder="중요도" name="important"> </td>
+                 <td> <input  type="text" placeholder="기타" name="etc"> </td>
                  
               </tr>
                  

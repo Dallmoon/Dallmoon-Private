@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="content_form">
+    <input type="text" name="content1" id="content">
+    <input type="text" name="content2" id="content">
+    <input type="text" name="content3" id="content">
+    <button id="btn_save">save</button>
+    <button id="btn_load"> Load</button>
+    </form>
+    <script>
+        
+        var storage_key ="content";
+        $(function(){
+            // $("#btn_save").click(function(){
+
+            //     //폼데이터를 문자열로 합치기
+            //     console.log($('#content_form').serialize());
+            //     //합친 문자열을 로컬스토리지에 저장
+            //     localStorage.setItem(storage_key,$("#content").val())
+            //     //폼 submit이 일어나지 않도록 반환함.
+            //     return false;
+            // });
+            $('#btn_load').click(function(){
+                content_data= localStorage.getItem(storage_key);
+                $('#content').val(content_data)
+                console.log(form_content.split("&"))
+            });
+           
+        });
+    </script>
+</body>
+</html>

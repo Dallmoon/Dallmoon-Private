@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        var content= {} //dictionary(사전형)
+        
+        content['content1']='1111';
+        content['content2']='2222';
+        content['content3']='3333';
+        console.log(content);
+        //사전형 변수를 문자열로 형변환하기
+        var content_string = JSON.stringify(content);
+        console.log(content_string);
+        //문자열이었던 데이터를 다시 사전형으로 형변환하기
+
+        content_dict = JSON.parse(content_string);
+        console.log(content_dict);
+
+        //사전형 전체데이터를 하나씩 꺼내서 처리하기.
+        for (var key in content_dict) {
+            //해당 사전형 변수에서 하나의 값을 선택하여 꺼내기
+            $('#'+key).val(content_dict[key]);
+        }
+
+
+        
+    </script>
+</body>
+</html>
