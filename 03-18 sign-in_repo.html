@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <form id="content_form">
+    <form id="content_form" action="join_ok.html">
     <input class="form-control" type="text" name="name"  placeholder="이름" id="name">
     <input class="form-control" type="email" name="email"  placeholder="이메일" id="email">
     <input class="form-control password1" type="password" name="password1" placeholder="비밀번호" id="password1">
@@ -147,31 +147,33 @@
                         
                                 localStorage.setItem(storage_key, form_content);
 
-                                
-
-                                
                                 return false;
 
                             });
  //-------------------json                          
                             // var content= {} //dictionary(사전형)
         
-                            //     content['name']= name;
-                            //     content['email']= email;
-                            //     content['text_doro']= text_doro;
-                            //     content['text_jibunjuso']= text_jibunjuso;
-                            //     content['text_postcode']= text_postcode;
-                            //     content['text_zonecode']= text_zonecode;
-                            //     content['password2']= password2;
-                            //     content['password1']= password1;
-                            //     console.log(content);
-                            //     //사전형 변수를 문자열로 형변환하기
-                            //     var content_string =  JSON.stringify(content);
-                            //     localStorage.setItem ("lololo",content_string)
-                                
-                                //문자열이었던 데이터를 다시 사전형으로 형변환하기
-                        }
-            });                
+                                // content['name']= name;
+                                // content['email']= email;
+                                // content['text_doro']= text_doro;
+                                // content['text_jibunjuso']= text_jibunjuso;
+                                // content['text_postcode']= text_postcode;
+                                // content['text_zonecode']= text_zonecode;
+                                // content['password2']= password2;
+                                // content['password1']= password1;
+                                // console.log(content);
+                                // //사전형 변수를 문자열로 형변환하기
+                                // var content_string =  JSON.stringify(content);
+                                // localStorage.setItem ("lololo",content_string)
+                        
+                        
+                        //문자열이었던 데이터를 다시 사전형으로 형변환하기 
+                        
+                        
+                        
+                }
+            });  
+                         
             // 일반 ------------------------------------------------------------
                                 var storage_key = "content"
                                 $('#btn_load').click(function(e) {
@@ -187,7 +189,7 @@
                                         console.log(key,data);
                                         $('#'+key).val(data);
                                     }
-                                    return false;
+                                    
 
                                 });
                                    

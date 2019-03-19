@@ -51,7 +51,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9f6fd', end
                     <th>기타</th>
                   </tr>
                 </thead>
-                <tbody id="list">
+                <tbody id="list"  name="list">
                   
                 </tbody>
               
@@ -65,16 +65,72 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9f6fd', end
                   <td> <input  type="submit" value="일정 추가 +" class="btn btn-light"> </td>
                  <td> <input  type="date" placeholder="기간" name="day"></td>
                  <td> <input  type="text" placeholder="할 일" name="do"> </td>
-                 <td> <input  type="number" placeholder="중요도" name="important"> </td>
+                 <td> <input  type="number" placeholder="중요도" min="1" max="10" name="important" style="width:80px"> </td>
                  <td> <input  type="text" placeholder="기타" name="etc"> </td>
                  
               </tr>
                  
+
+              <button id="btn_load">load</button>
              
             </table>
               </form>
             
               <script>
+                
+                                // content['name']= name;
+                                // content['email']= email;
+                                // content['text_doro']= text_doro;
+                                // content['text_jibunjuso']= text_jibunjuso;
+                                // content['text_postcode']= text_postcode;
+                                // content['text_zonecode']= text_zonecode;
+                                // content['password2']= password2;
+                                // content['password1']= password1;
+                                // console.log(content);
+                                // //사전형 변수를 문자열로 형변환하기
+                                // var content_string =  JSON.stringify(content);
+                                // localStorage.setItem ("lololo",content_string)
+                    
+                  // 
+                     $('#btn_load').click(function(e) {
+                                     e.preventDefault();
+                                     console.log('a');
+                                     var a = localStorage.getItem("data")
+                                 content_dict = JSON.parse(a);
+                                    
+
+                                 //사전형 전체데이터를 하나씩 꺼내서 처리하기.
+                                 for (var key in content_dict) {
+                                     //해당 사전형 변수에서 하나의 값을 선택하여 꺼내기
+                                     var item = "<tr class='line'>" +
+                                               "<td>" + '완료! <input type="checkbox" class="check">' + "</td>" +
+                                               "<td>" + content_dict[key]["day"] + "</td>" +
+                                               "<td>" + content_dict[key]["do"] + "</td>" +
+                                               "<td>" + content_dict[key]["important"] + "</td>" +
+                                               "<td>" + content_dict[key]["etc"] + "</td>" +
+                                               "</tr>";
+                                     $('#list').append(item)
+                                 };
+                                 return false;
+
+                 });
+                  
+                  function Todo_input(a,b,c,d){
+                  var line = $('.line')
+                  var data = {};
+                  line.each(function(index) {
+                    data[index] = {
+                      day: $('.line:nth-child(' + (Number(index) + 1) + ") td:nth-child(2)").text(), 
+                      do: $('.line:nth-child(' + (Number(index) + 1) + ") td:nth-child(3)").text(), 
+                      important: $('.line:nth-child(' + (Number(index) + 1) + ") td:nth-child(4)").text(), 
+                      etc: $('.line:nth-child(' + (Number(index) + 1) + ") td:nth-child(5)").text()
+                      }
+                  })
+                  localStorage.setItem('data', JSON.stringify(data));
+                  
+                  };
+
+
                 $(document).ready(function() {
                   $(".form").submit(function(e){
                     e.preventDefault();
@@ -93,14 +149,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9f6fd', end
                       "<td>" + d + "</td>" +
                       "</tr>"
                       ); 
+                     Todo_input(a,b,c,d);
                   });
                       $('#list').on(
                         'click','.check',function(){
                           $(this).parent().parent().remove();
+                          Todo_input();
                         }
+                        
                       )
-                
+                        
                   });
+                  
+
+
 
 
                 // $(document).ready(function() {
