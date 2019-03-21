@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <title>간단한 지도 표시하기</title>
+        <style>
+            #test_naver_map{
+                margin: 0 auto;
+                top: 4em;
+            }
+
+            .mdl-dialog{
+                left: 100em;
+                top: 11em;
+                width: 18%!important;
+
+            }
+
+            .mdl-dialog__content{
+                
+                padding: unset!important;
+
+
+            }
+
+            .btn_x{
+                min-width: unset!important;
+                width: 3em;
+                border: 1px;
+            }
+
+            .demo-card-square.mdl-card {
+                width: 320px;
+                height: 320px;
+            }
+            .demo-card-square > .mdl-card__title {
+                color: #fff;
+                background:
+                url('https://getmdl.io/assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+            }
+
+            #form_title{
+                height: 100%;
+            }
+
+            .title_lo{
+                top: 70%;
+
+            }
+
+            .mdl-textfield{
+                padding: 25px 0!important;
+
+            }
+
+            .add_clo{
+                
+                margin-left: 75%;
+            }
+
+            .mdl-card__actions{
+                width: 47%!important;
+            }
+
+
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=cft81tpbn7&submodules=geocoder"></script>
+        <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+<!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <span class="mdl-layout-title">맛집을 찾아서</span>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Title</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                
+                <div class="page-content">
+                    <div id="test_naver_map" style="width:50%;height:600px;"></div>
+                </div>
+                <button id="show-dialog" type="button" class="mdl-button">Show Dialog</button>
+
+                <dialog class="mdl-dialog">
+                    <div class="mdl-dialog__content">
+                        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title mdl-card--expand">
+                                <form action="#" id="form_title">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label title_lo">
+                                        <input class="mdl-textfield__input input_title" type="text" id="inner_title" autocomplete="off">
+                                        <label class="mdl-textfield__label" for="inner_title">맛집이름</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <form>
+                                    <div class="form-group">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label title_lo">
+                                            <input class="mdl-textfield__input input_title" type="text" id="inner_title" autocomplete="off">
+                                            <label class="mdl-textfield__label" for="inner_title">맛집리뷰</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border add_clo">
+                                <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">저장</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </dialog>
+            </main>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        var options = {
+            center: new naver.maps.LatLng(37.5465027, 127.0541271),
+            zoom: 10,
+            scaleControl: true,
+            logoControl: true,
+            mapDataControl: true,
+            mapTypeControl: true,
+            zoomControl: true,
+            zoomControlOptions: {
+                position: naver.maps.Position.RIGHT_CENTER
+            }
+        };
+        var naver_map = new naver.maps.Map($('#test_naver_map')[0], options);
+
+
+        function test(){
+            alert('in test function');
+        }
+
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(37.5454815,127.0540721),
+            map: naver_map
+        });
+
+        naver.maps.Event.addListener(naver_map, 'click', function(e) {
+            // marker.setPosition(e.latlng);
+            var marker = new naver.maps.Marker({
+                position: e.latlng,
+                map: naver_map
+            });
+            naver_map.setCenter(e.latlng);      // 마커 입력시 마커된 지점이 센터로 가게하기
+            naver.maps.Event.addListener(marker, 'click', test);        // 마커에 이벤트 추가 위의 함수 test 불러옴
+        });
+
+        // geocoding
+
+        $('#btn_address').click(function() {
+            $('#address').val();
+            naver.maps.Service.geocode({
+                address: $('#address').val()
+            }, function(status, response) {
+                if (status !== naver.maps.Service.Status.OK) {
+                    return alert('Something wrong!');
+                }
+                var result = response.result, // 검색 결과의 컨테이너
+                    items = result.items; // 검색 결과의 배열
+                console.log(items[0]);
+                var item = items[0];
+                // do Something
+                var marker = new naver.maps.Marker({
+                    position: new naver.maps.Point(item.point.x,item.point.y),
+                    map: naver_map
+                });
+                naver_map.setCenter(new naver.maps.Point(item.point.x,item.point.y));
+            });
+        });
+
+
+        // 여기는 다이알로그 show
+        var dialog = document.querySelector('dialog');
+        var showDialogButton = document.querySelector('#show-dialog');
+        if (! dialog.showModal) {
+            dialogPolyfill.registerDialog(dialog);
+        }
+        showDialogButton.addEventListener('click', function() {
+            dialog.showModal();
+        });
+        dialog.querySelector('.close').addEventListener('click', function() {
+            dialog.close();
+        });
+
+        // 다음주소검색
+
+    </script>
+    </body>
+</html>

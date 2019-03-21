@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>mapproject_lololo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    
+
+
+        <div class="review_container"name="review_container"></div>
+
+    <form class='review_form' name='review_form'>
+
+        <input type='text' class='input_title' name='input_title'>
+        <input type='text' class='input_value' name='input_value'>
+        <input type='submit' class='submit'>
+
+    </form>
+    <button id="btn_load">adsf</button>
+    <script>
+
+       
+//로컬스토리지에 인풋값 저장
+    function Review_input(a,b){
+        var line = $('.review_accordion')
+        var data = {};
+        line.each(function(index) {
+          data[index] = {
+            accordion_title: $('.review_accordion:nth-child(' + (Number(index) + 1) + ") div:nth-child(1)").text(), 
+            accordion_value: $('.review_accordion:nth-child(' + (Number(index) + 1) + ") div:nth-child(2)").text(), 
+            }
+            console.log(data)
+        })
+        localStorage.setItem('data', JSON.stringify(data));
+        
+        };
+
+
+        $('#btn_load').click(function(e) {
+            e.preventDefault();
+            console.log('a');
+            var a = localStorage.getItem("data")
+        content_dict = JSON.parse(a);
+            
+
+        //사전형 전체데이터를 하나씩 꺼내서 처리하기.
+        for (var key in content_dict) {
+            //해당 사전형 변수에서 하나의 값을 선택하여 꺼내기
+            var item = "<div class='review_accordion' name='review_accordion'>" +
+                    "<div class='accordion_title' name='accordion_title'>" + content_dict[key]["accordion_title"] + "</div>" +
+                    "<div class='accordion_title' name='accordion_value'>" + content_dict[key]["accordion_value"] + "</div>" +
+                    "</div>";
+            $('.review_container').append(item)
+        };
+        return false;
+        });
+        
+
+        //인풋창에서 추가
+        $(document).ready(function() {
+        $('.review_form').submit(function(e){
+             e.preventDefault();
+            
+             //인풋에서 타이틀과 밸류값을 받음
+                var a = $("input[name='input_title']").val()
+                var b = $("input[name='input_value']").val()
+                console.log(a, b);
+            //리뷰창에 출력
+            $('.review_container').append(
+                      "<div class='review_accordion' name='review_accordion'>" +
+                      "<div class='accordion_title' name='accordion_title'>"+ a +"</div>"+
+                      "<div class='accordion_value' name='accordion_value'>"+ b +"</div>"+
+                      "</div>"
+                      ); 
+                      Review_input(a,b);
+        });
+        });
+        // Review_input(a,b,c,d);
+
+
+    //   $(document).ready(function() {
+    //     $(".form").submit(function(e){
+    //       e.preventDefault();
+          
+         
+         
+          
+        //   $('#list').append(
+        //     "<tr class='line'>" +
+        //     "<td>" + '완료! <input type="checkbox" class="check">' + "</td>" +
+        //     "<td>" + a + "</td>" +
+        //     "<td>" + b + "</td>" +
+        //     "</tr>"
+            // ); 
+           
+        // });
+
+    //   });
+        </script>
+</body>
+</html>

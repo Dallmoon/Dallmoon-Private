@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=6wmukii67g&submodule=geocoder"></script>
+</head>
+<body>
+
+    <div id="test_map" style="width:50%;height:500px;"></div>
+
+<script>
+var mapOptions = {
+    center: new naver.maps.LatLng(37.5433405,127.1484899),
+
+//지도옵션 적용하기
+    zoom: 15,
+    scaleControl: true,
+    logoControl: true,
+    mapDataControl: true,
+    mapTypeControl: true,
+    zoomControl: true,
+    zoomControlOptions: {
+        position: naver.maps.Position.RIGHT_CENTER
+    },
+};
+var locationBtnHtml = '<a href="#" class="btn_mylct"><span class="spr_trff spr_ico_mylct">NAVER 그린팩토리</span></a>';
+
+var customControl = new naver.maps.CustomControl(locationBtnHtml, {
+    position: naver.maps.Position.TOP_LEFT
+});
+
+var map = new naver.maps.Map($('#test_map')[0], mapOptions); //('요소', 옵션 값)
+//변수명은 항상 교체 가능함.
+
+var map = new naver.maps.Map('map', {});
+
+$('.btn_mylct').click(function(){
+   alert('hello') 
+});
+
+customControl.setMap(map);
+
+$('#btn_address')
+</script>
+</body>
+</html>

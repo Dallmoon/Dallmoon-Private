@@ -125,6 +125,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9f6fd', end
                       important: $('.line:nth-child(' + (Number(index) + 1) + ") td:nth-child(4)").text(), 
                       etc: $('.line:nth-child(' + (Number(index) + 1) + ") td:nth-child(5)").text()
                       }
+                      console.log(data)
                   })
                   localStorage.setItem('data', JSON.stringify(data));
                   

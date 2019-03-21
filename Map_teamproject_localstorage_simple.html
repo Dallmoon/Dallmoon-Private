@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>map-2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id=point></div>
+    <script>
+
+    $('#btn_load').click(function(e) {
+        e.preventDefault();
+        var form_content = localStorage.getItem(point);
+        var split_data = form_content.split("&");
+        
+        for ( var i in split_data ) {
+            var content_data = split_data[i].split("=");
+                
+            var key = decodeURIComponent(content_data[0]);
+            var data = decodeURIComponent(content_data[1]);
+            console.log(key,data);
+            $('#'+key).val(data);
+        }
+        return false;
+
+    });
+
+    
+
+
+    
+    $(function(){                            
+            var form_content = $('.review_form').serialize();
+            console.log(form_content)
+    
+            localStorage.setItem(point, form_content);
+
+            return false;
+
+    });
+    </script>
+</body>
+</html>
