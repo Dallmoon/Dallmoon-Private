@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:500|Ubuntu" rel="stylesheet">
+    <style>
+        
+        .D_top_bar{
+            background-color:white;
+            color:black;
+            
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            overflow: hidden;
+            padding-left:2.3%;
+            padding-right: 2.3%;
+            padding-top:0.3%;
+            
+            border-bottom:black;
+            
+        }
+        ul {
+            list-style-type: none;
+            padding:0px;
+            margin:5px;
+            }
+        
+        .font{
+            font-family: 'ubuntu', sans-serif;
+        }.main-menu{
+            
+            display:inline-block;
+            
+            line-height: 25px;
+            width:15%;
+            padding:10px;
+            margin:0px;
+            text-align: center;
+            font-size:1em;
+            
+        }
+
+        .smenu{
+           display: none;
+           margin:10px;
+           width:auto;
+           
+           
+        }
+        .smenu_list{
+            font-size:0.8em;
+        }
+        .menu-bar{
+            
+            margin:0px;
+            padding:0px;
+            width:auto;
+            font-size:1.5em;
+           
+            
+        }
+        ol{
+            padding-left:20px;
+        }
+        .D_top_bar_title{
+            display: inline-block;
+           
+        }
+        .D_detail{
+           text-align:center; 
+           margin-top: 200px;
+           
+        }
+        /* .underbar{
+            border-top:none;
+            border-left:none;
+            border-right:none;
+            border: bottom 5px;;
+            border:black;
+
+
+        }
+     */
+        hr{
+            border: none;
+            height: 2px;
+            /* Set the hr color */
+            color: #333; /* old IE */
+            background-color: #333; /* Modern Browsers */
+            width:100%;
+            
+           
+            
+        }
+        .item_img_main{
+            
+            /* display:inline-block; */
+            width:550px;
+            height:auto;
+            float: left;
+            
+            
+
+        }
+        .item_img_sub{
+            width: 70px;
+            height: auto;
+            /* float:left; */
+            
+            overflow: hidden;
+        }
+        
+        .title_img{
+            width:2.5%;
+            height:2.5%;
+            display: inline-block;
+            padding-right:5px;
+            vertical-align: 10%;
+            margin-top:0px;
+            
+        }
+        .item_detail{
+            padding:20px;
+            margin-left:20px;
+            font-size:20px;
+        }
+        .test{
+            float:left;
+            background-color:white;
+            
+        }
+        .size{
+            display: inline-block;
+        }
+        .dropdown{
+            display: inline-block;
+            margin:20px;
+            
+        }
+        .quantity1{
+            margin-left:20px;
+            text-align: center;
+            width: 50px;
+        }
+        .add_cart1{
+            background: rgb(72,58,200);
+           border-radius: 10px;
+           border:none;
+           color:white;
+           width:300px;
+           height: 40px;
+           text-align: center;
+           margin-left:100px;
+           margin-top:10px;
+        }
+        .specific_detail{
+            font-size:15px;
+            overflow: hidden;
+        }
+        .div{
+            display: inline-block;
+        }
+        .hrtest{
+            margin-top:400px;
+        }
+        .moretext{
+            font-size:40px;
+            text-align: center;
+            
+        }
+        .more_img{
+            width:100px;
+            height: auto;
+            margin-left:70px;
+            margin-right: 70px;
+            text-align: center;
+            
+        }
+
+    
+    
+    </style>
+</head>
+<body>
+
+    <div class= "D_top_bar fixed-top">
+        <img class="title_img" src="다운로드.png" alt="">
+    <div style="font-size: 2.5rem" class="D_top_bar_title">Dallmoon</div>
+        <div class="menu-bar menu">
+            
+            <li class="main-menu">
+                clothing
+                <ul class="smenu">
+                        <li class= "smenu_list">menu</li>
+                        <li class= "smenu_list">menu</li>
+                        <li class= "smenu_list">menu</li>
+             
+             
+                     </ul>
+            </li>
+        
+        <li class="main-menu">
+                fragrance
+                <ul class="smenu">
+                        <li class= "smenu_list">menu</li>
+                        <li class= "smenu_list">menu</li>
+                        <li class= "smenu_list">menu</li>
+             
+             
+                     </ul>
+            </li> 
+            <li class="main-menu">
+                    beauty
+                    <ul class="smenu">
+                            <li class= "smenu_list">menu</li>
+                            <li class= "smenu_list">menu</li>
+                            <li class= "smenu_list">menu</li>
+                 
+                 
+                         </ul>
+                </li> <li class="main-menu">
+                        accessories
+                        <ul class="smenu">
+                                <li class= "smenu_list">menu</li>
+                                <li class= "smenu_list">menu</li>
+                                <li class= "smenu_list">menu</li>
+                     
+                     
+                             </ul>
+                    </li>
+                    <li class="main-menu">
+                          collections
+                        <ul class="smenu">
+                                <li class= "smenu_list">menu</li>
+                                <li class= "smenu_list">menu</li>
+                                <li class= "smenu_list">menu</li>
+                     
+                     
+                             </ul>
+                    </li> 
+                </div>
+    </div>
+    
+    <div class='D_detail'>
+        <div> 
+            <p>history</p>
+            <p style="font-size:70px">상품 명</p>
+            <hr>
+        </div>
+    </div>
+    <div>
+        <div>
+            <img class="item_img_main" src="FANT-30ml_Bottle.jpg" alt="">
+            
+        </div>
+            <!-- <button class= "upscroll">adf</button> -->
+    <div>
+            <!-- <div class="item_img_scroll1">
+                <img class="item_img_sub" src="다운로드 (1).png" alt="">
+                <img class="item_img_sub" src="다운로드 (1).png" alt="">
+            </div> -->
+            <!-- <div class = 'item_img_sub1'>
+                <img class="item_img_sub " src="fantasia_3e5ff78e-9db1-44cb-b8eb-74522d9f47c9.jpg" alt="">
+                <img class="item_img_sub " src="Fantasia-70.jpg" alt="">
+            </div>
+            <div class = "item_img_sub2">
+                <img class="item_img_sub " src="Fantasia-50.jpg" alt="">
+                <img class="item_img_sub " src="FANT-30ml_Box.jpg" alt="">
+            </div>
+            <div class = 'item_img_sub'>
+                <img class="item_img_sub " src="FANT-30ml_Bottle.jpg" alt="">
+                <img class="item_img_sub " src="FANT-75ml_Bottle.jpg" alt="">
+            </div> -->
+            <!-- <div class="item_img_scroll2">
+                    <img class="item_img_sub" src="다운로드 (1).png" alt="">
+                    <img class="item_img_sub" src="다운로드 (1).png" alt="">
+            </div> -->
+            <div class="test">
+            <ul>
+                <li><img class="item_img_sub img1" src="fantasia_3e5ff78e-9db1-44cb-b8eb-74522d9f47c9.jpg" alt=""></li>
+                <li><img class="item_img_sub img2" src="Fantasia-70.jpg" alt=""></li>
+                <li><img class="item_img_sub img3" src="Fantasia-50.jpg" alt=""></li>
+                <li><img class="item_img_sub img4" src="FANT-30ml_Box.jpg" alt=""></li>
+                <li><img class="item_img_sub img5" src="FANT-30ml_Bottle.jpg" alt=""></li>
+                <li><img class="item_img_sub img6" src="FANT-75ml_Bottle.jpg" alt=""></li>
+            </ul>
+            </div>
+        </div>
+        <!-- <button class = "downscroll">sdaf</button> -->
+    <div class="item_detail">
+                <p class= "price">price</p>
+                <div class= "size"> size
+                <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          select
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">30ml</a>
+                          <a class="dropdown-item" href="#">50ml</a>
+                          <a class="dropdown-item" href="#">70ml</a>
+                        </div>
+                </div>
+                </div>
+
+                <div class= 'quantity'>
+                    quantity
+                    <input class='quantity1' type="number" placeholder="1" min="1">
+                </div>
+                <div class= 'add_cart'>
+                    <button class= 'btn btn-outline-dark' stlye="width:100px">add cart</button>
+                </div>
+                <hr>
+                <div class= 'specific_detail'>인간이 생의 길을 얼마나 가슴에 더운지라 이는 바로 교향악이다. 길을 할지라도 대고, 넣는 그러므로 찬미를 이상이 듣는다. 긴지라 구하지 가진 바로 뭇 아름다우냐? 생생하며, 것은 광야에서 그들의 청춘에서만 심장의 앞이 가슴에 천지는 약동하다. 방황하였으며, 얼음 위하여, 그들의 보내는 방지하는 봄바람을 청춘에서만 운다. 그들의 천고에 모래뿐일 보이는 찾아 그들에게 아름답고 트고, 착목한는 것이다. 바이며, 봄날의 넣는 위하여서. 있는 가진 오아이스도 가슴에 보배를 소리다.이것은 뿐이다. 가치를 되려니와, 불어 무엇을 위하여, 보라. 놀이 온갖 피가 우리 얼음과 밝은 기쁘며, 같으며, 그들의 약동하다.
+
+                        옷을 하였으며, 청춘을 그들은 힘있다. </div>
+                <div class= 'share'>
+                    share:
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt=""> 
+                </div>
+                
+             
+
+                
+            </div>
+            
+    </div>
+</div>
+     
+        <hr class='hrtest'>
+        <div class="moretext" style="text-align: center">
+            more in this collection
+        </div>
+        <div>
+            <img class="more_img" src="Fantasia-50.jpg" alt="">
+            <img class="more_img" src="Fantasia-70.jpg" alt="">
+            <img class="more_img" src="FANT-75ml_Bottle.jpg" alt="">
+            <img class="more_img" src="FANT-30ml_Bottle.jpg" alt="">
+            <img class="more_img" src="FANT-30ml_Box.jpg" alt="">
+
+        </div>
+
+        
+        
+
+
+
+
+
+
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+            //mouseover,mouseout:자식 엘레먼트에 접근했을 떄도 동작
+            //mouseenter, mouseleave 자식 엘리먼트에는 동작하지않음.
+            
+            $('.menu').mouseover(function(){
+                $('.smenu').show();
+                
+            })
+            
+            $('.menu').mouseout(function(){
+                $('.smenu').hide();
+                
+            });
+            $('.smenu').mouseout(function(){
+                $('.smenu').hide()
+            }); $('.smenu').mouseover(function(){
+                $('.smenu').show()
+            });
+
+            $('.upscroll').click(function(){
+                $('.item_img_scroll1').slideUp("slow")
+            })
+            $('.downscroll').click(function(){
+                $('.item_img_scroll1').slideDown("slow")
+            })
+            
+            $('.img1').click(function(){
+                $('.item_img_main').attr({ src: 'fantasia_3e5ff78e-9db1-44cb-b8eb-74522d9f47c9.jpg' });});
+
+            $('.img2').click(function(){
+            $('.item_img_main').attr({ src: 'Fantasia-70.jpg' });})
+
+            $('.img3').click(function(){
+            $('.item_img_main').attr({ src: 'Fantasia-50.jpg' });})
+
+            $('.img4').click(function(){
+            $('.item_img_main').attr({ src: 'FANT-30ml_Box.jpg' });})
+            
+            $('.img5').click(function(){
+            $('.item_img_main').attr({ src: 'FANT-30ml_Bottle.jpg' });})
+
+            $('.img6').click(function(){
+            $('.item_img_main').attr({ src: 'FANT-75ml_Bottle.jpg' });})
+           
+
+            
+        </script>
+        
+</body>
+</html>
