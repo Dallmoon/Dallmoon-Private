@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href = "Dallmoon_css.css">
     <link rel="stylesheet" href="./malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="./Material-Design-Calculator-jQuery/css/creative.css"> 
     
     
 </head>
@@ -56,18 +57,7 @@
                 </div>
             <img class= "D_sideicon1" src="./Dallmoon_image/social-addthis.png" alt="">
         </div>
-        <!-- <div class= "D_sideicon D_">
-                <div class="content-container">
-                        <div class="D_sideicon_sub">asdfasdf</div>
-                </div>
-            <img class= "D_sideicon1 " src="" alt="">
-        </div>
-        <div class= "D_sideicon D_">
-                <div class="content-container">
-                        <div class="D_sideicon_sub">asdfasdf</div>
-                </div>
-            <img class= "" src="" alt="">
-        </div> -->
+        
         
 
     </div>
@@ -86,20 +76,62 @@
                             타이머
                         </div>
                         <img src="./Dallmoon_image/Very-Basic-Search-icon-arrow.png" class="D_arrow" alt="">
+                </div>
                         <div class="D_timer_sub">
                             asd
                         </div>
-                </div>
+                        
                 <div class="D_tools_sub2 D_tools_sub2_calc">
                     
                         <div class="D_calc">
                             계산기
                         </div>
                         <img src="./Dallmoon_image/Very-Basic-Search-icon-arrow.png" class="D_arrow" alt="">
+                    </div>
                         <div class="D_calc_sub">
-                            asd
+                                <div class="col-md-12 col-md-offset-12 calculator" align="center">
+                                        <div class="row displayBox">
+                                          <p class="displayText" id="display">0</p>
+                                        </div>
+                                        <div class="row numberPad">
+                                          <div class="col-md-9">
+                                            <div class="row">
+                                              <button class="btn clear hvr-back-pulse" id="clear">C</button>
+                                              <button class="btn btn-calc hvr-radial-out" id="sqrt">√</button>
+                                              <button class="btn btn-calc hvr-radial-out hvr-radial-out" id="square">x<sup>2</sup></button>
+                                            </div>
+                                            <div class="row">
+                                              <button class="btn btn-calc hvr-radial-out" id="seven">7</button>
+                                              <button class="btn btn-calc hvr-radial-out" id="eight">8</button>
+                                              <button class="btn btn-calc hvr-radial-out" id="nine">9</button>
+                                            </div>
+                                            <div class="row">
+                                              <button class="btn btn-calc hvr-radial-out" id="four">4</button>
+                                              <button class="btn btn-calc hvr-radial-out" id="five">5</button>
+                                              <button class="btn btn-calc hvr-radial-out" id="six">6</button>
+                                            </div>
+                                            <div class="row">
+                                              <button class="btn btn-calc hvr-radial-out" id="one">1</button>
+                                              <button class="btn btn-calc hvr-radial-out" id="two">2</button>
+                                              <button class="btn btn-calc hvr-radial-out" id="three">3</button>
+                                            </div>
+                                            <div class="row">
+                                              <button class="btn btn-calc hvr-radial-out" id="plus_minus">&#177;</button>
+                                              <button class="btn btn-calc hvr-radial-out" id="zero">0</button>
+                                              <button class="btn btn-calc hvr-radial-out" id="decimal">.</button>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-3 operationSide">
+                                            <button id="divide" class="btn btn-operation hvr-fade">÷</button>
+                                            <button id="multiply" class="btn btn-operation hvr-fade">×</button>
+                                            <button id="subtract" class="btn btn-operation hvr-fade">−</button>
+                                            <button id="add" class="btn btn-operation hvr-fade">+</button>
+                                            <button id="equals" class="btn btn-operation equals hvr-back-pulse">=</button>
+                                          </div>
+                                        </div>
+                                      </div>
                         </div>
-                </div>
+                
                 
                 <div class="D_tools_sub2 D_tools_sub2_economy">
                     
@@ -114,10 +146,28 @@
 
             </div>
             <div class="D_sidebar_sub_test D_sidebar_sub_memo">
-                asdfasdfasdf
+                <div class="D_memo_sub1">
+                    <span class="D_memo_sub1_title">메모</span>
+                </div>
+                <form class="D_memo_form">
+                    <input type="text" class="D_memo_input form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="D_memo_input" placeholder="내용을 입력하세요">
+                    <input type="submit" value="저장" class="D_memo_submit btn btn-outline-dark">
+                    
+                </form>
+                <button class="D_memo_load">불러오기</button>
+                <div class="D_memo_box">
+                    
+                    <div class="D_memo_date">
+                        aa
+                        <div class="D_memo_content">
+                            aaa
+                        </div>
+                    </div>
+                </div>
             </div>
+            
             <div class="D_sidebar_sub_test D_sidebar_sub_translation">
-               
+               <iframe src="https://translate.kakao.com/"></iframe>
             </div>
             <div class="D_sidebar_sub_test D_sidebar_sub_bookmark"></div>
             <div class="D_sidebar_sub_test D_sidebar_sub_plus"></div>
@@ -137,6 +187,7 @@
     <script src="Dallmoon_script.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleSectionalElementInit&ug=section&hl=ko"></script>
     <script src="./malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js"></script>
-
+    
+    <script src="./Material-Design-Calculator-jQuery/js/calculate.js"></script>
 </body>
 </html>

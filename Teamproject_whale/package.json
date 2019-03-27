@@ -1,15 +1,17 @@
 {
   "name": "teamproject_whale",
   "version": "1.0.0",
-  "description": "",
   "main": "Dallmoon_script.js",
   "dependencies": {
-    "express": "^4.16.4"
+    "countimer": "^1.1.0",
+    "express": "^4.16.4",
+    "material_calculator": "^1.3.3"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }

@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $(".content").mCustomScrollbar();
 
-    // console.log($(".D_sideicon").mouseenter)
+   //마우스 오버시 확대
     $(".D_quick_search").mouseenter(function(){
         $('.D_quick_search_sub').css("display","inline-block");
 
@@ -65,17 +65,7 @@ $(document).ready(function(){
 
     //사이드 아이콘 클릭 시 메뉴 출력
     
-    // $(".D_sideicon").click(function(){
-        
-        // $('.D_sidebar_sub').addClass('active');
-        // $('.D_sidebar_sub').removeClass('active');
-        // if ($('.D_sidebar_sub').css("display") == "none"){
-        //     $('.D_sidebar_sub').animate({display:"inline-block"},1)
-        //     }
-        //     else{
-        //         $('.D_sidebar_sub').hide()
-        //     }
-    // });
+   
 
     $(".D_quick_search").click(function(){
         if ($(".D_sidebar_sub_quick_search").css("display") == "none"){
@@ -197,8 +187,7 @@ $(document).ready(function(){
     });
 
 
-    // 네이버 검색 API예제는 블로그를 비롯 전문자료까지 호출방법이 동일하므로 blog검색만 대표로 예제를 올렸습니다.
-// 네이버 검색 Open API 예제 - 블로그 검색
+   
 
 
   (function() {
@@ -210,7 +199,60 @@ $(document).ready(function(){
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
   })();
+
+
+
+
+  $(".D_memo_load").click(function(e){
+    e.preventDefault()
+    
+    var form_content = localStorage.getItem(key);
+    console.log(form_content)
+    
+    
+    for ( var i in form_content ) {
+        var content_data = form_content[i].split("=");
+            
+        var key = decodeURIComponent(content_data[0]);
+        var data = decodeURIComponent(content_data[1]);
+        console.log(key,data);
+        $('#'+key).val(data);
+        $('.D_memo_form').append(
+            "<div class='D_memo_box'>"+
+            "<div class='D_memo_date'>"+"날짜"+":"+key+"</div>"
+            +"<div class='D_memo_content'>"+data+"</div>"
+            +"</div>"
+        )
+             
+    }
+    return false;
+
+});
   
+
+
+
+$(".D_memo_submit").click(
+    function(){
+
+        var D_memo_day = new Date();
+        var memo_item = $('.D_memo_input').val()                               
+        var form_content = $('.D_memo_form').serialize();
+        
+        localStorage.setItem(D_memo_day, form_content);
+        $('.D_memo_form').append(
+            "<div class='D_memo_box'>"+
+            "<div class='D_memo_date'>"+"날짜"+":"+D_memo_day+"</div>"
+            +"<div class='D_memo_content'>"+memo_item+"</div>"
+            +"</div>"
+        )
+
+        
+
+        return false;
+
+});
+        
 
  
 

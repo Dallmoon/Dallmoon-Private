@@ -22,7 +22,7 @@
     padding: 5px;
     background-color: #fff;
     
-    /* overflow:hidden; */
+   
 }
 .D_sideicon{
     width:30px;
@@ -78,10 +78,7 @@ img.D_sideicon1:hover{
     top:0;
     bottom:0;
     right:40px;
-    /* border-style:solid;
-    border-right:none;
-    border-bottom:none;
-    border-width:0.5px; */
+   
     z-index: -1;
     overflow: auto;
     transition: all 0.5s;
@@ -112,6 +109,8 @@ html{
 }
 .D_sidebar_sub_translation{
     display:none;
+    width:30vw;
+    height:70vh;
 }
 .D_sidebar_sub_plus{
     display:none;
@@ -135,6 +134,7 @@ html{
 .D_tools_sub2:hover{
     background-color: #d5d5d5;
     cursor: pointer;
+    
 }
 .D_tools_sub1{
     border-style:solid;
@@ -148,7 +148,7 @@ html{
 }
 .D_tools_sub1_title{
     margin-left:15px;
-    /* margin-top:10px; */
+    
     font-size:25px;
     font-weight: 600;
 }
@@ -180,6 +180,22 @@ html{
     margin-right:10px;
     margin-top:10px;
     
+}
+.D_memo_sub1{
+    border-style:solid;
+    border-width:2px;
+    border-color: #acacac;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    width:385px;
+    line-height:50px;
+}
+.D_memo_sub1_title{
+    margin-left:15px;
+    
+    font-size:25px;
+    font-weight: 600;
 }
 html {
 
@@ -219,13 +235,15 @@ html {
 .D_timer_sub{
     
     display: none;
-    margin-left:40px;
+    
    
 }
 .D_calc_sub{
    
     display: none;
-    margin-left:40px;
+    margin:10px;
+    box-shadow: 3px 4px 4px 3px rgba(0,0,0,0), 3px 3px 3px 3px rgba(0,0,0,0);
+
    
 }
 .D_papago_sub{
@@ -240,4 +258,25 @@ html {
     margin-left:40px;
    
 }
-
+iframe{
+    width:100%;
+    height:150%;
+}
+.D_memo_date{
+    margin:10px;
+    font-size:13px;
+}
+.D_memo_box{
+    background-color:rgb(195, 185, 239,0.5);
+    box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2), 3px 3px 10px 0 rgba(0,0,0,0.19);
+    border-color: violet;
+    border-width: 5px;
+    border-style:solid;
+    border-bottom:none;
+    border-right:none;
+    border-top:none;
+    
+}
+.D_memo_content{
+    
+}
