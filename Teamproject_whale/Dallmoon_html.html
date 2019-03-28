@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./node_modules/moment/moment.js"></script>
     <link rel="stylesheet" href = "Dallmoon_css.css">
     <link rel="stylesheet" href="./malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="./Material-Design-Calculator-jQuery/css/creative.css"> 
+    <link rel="stylesheet" href="./Material-Design-Calculator-jQuery/css/creative.css">
+     
     
     
 </head>
@@ -78,7 +80,13 @@
                         <img src="./Dallmoon_image/Very-Basic-Search-icon-arrow.png" class="D_arrow" alt="">
                 </div>
                         <div class="D_timer_sub">
-                            asd
+                                <span class="timer"></span>
+                                <p><button class="btn D_start">Start</button>
+                                    <button class="btn btn-warning">Stop</button>  
+                                    <button class="btn btn-success">Resume</button></p>
+                                    <input class="D_timer_input">
+                               
+
                         </div>
                         
                 <div class="D_tools_sub2 D_tools_sub2_calc">
@@ -131,45 +139,93 @@
                                         </div>
                                       </div>
                         </div>
-                
-                
-                <div class="D_tools_sub2 D_tools_sub2_economy">
-                    
-                        <div class="D_economy">
-                            환율
-                        </div>
-                        <img src="./Dallmoon_image/Very-Basic-Search-icon-arrow.png" class="D_arrow" alt="">
-                        <div class="D_economy_sub">
-                            asd
-                        </div>
-                </div>
 
             </div>
             <div class="D_sidebar_sub_test D_sidebar_sub_memo">
                 <div class="D_memo_sub1">
                     <span class="D_memo_sub1_title">메모</span>
                 </div>
+                
                 <form class="D_memo_form">
+                <div class="D_memo_form_div">
                     <input type="text" class="D_memo_input form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="D_memo_input" placeholder="내용을 입력하세요">
-                    <input type="submit" value="저장" class="D_memo_submit btn btn-outline-dark">
+                    <input type="submit" value="저장" class="D_memo_submit btn btn-outline-dark" >
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button> -->
+                </div>
                     
                 </form>
-                <button class="D_memo_load">불러오기</button>
-                <div class="D_memo_box">
-                    
-                    <div class="D_memo_date">
-                        aa
-                        <div class="D_memo_content">
-                            aaa
-                        </div>
-                    </div>
-                </div>
+                
+                
+                
             </div>
             
             <div class="D_sidebar_sub_test D_sidebar_sub_translation">
                <iframe src="https://translate.kakao.com/"></iframe>
             </div>
-            <div class="D_sidebar_sub_test D_sidebar_sub_bookmark"></div>
+            <div class="D_sidebar_sub_test D_sidebar_sub_bookmark">
+                
+                <DL><p>
+                    
+                    
+                    <DT class="D_bookmark_lineheight">
+                            <img src="./Dallmoon_image/Star-icon.png" alt="" class="D_bookmark_star">
+                            <H3 ADD_DATE="1551759765" LAST_MODIFIED="1553675175" PERSONAL_TOOLBAR_FOLDER="true">북마크</H3>
+                        <button class="D_bookmark_add btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">북마크 추가..</button>
+                        
+                    </DT>
+                    <hr>
+                    <DL>
+                        <form class="D_bookmark_list">
+                            
+                        </form><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">북마크 추가</h5>
+                                        <button type="button" class="close D_close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                        
+                                            <label for="basic-url">Your vanity URL</label>
+                                            <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3">사이트 주소</span>
+                                              </div>
+                                              <input type="text" class="form-control D_site_url" name="D_site_url" id="basic-url" aria-describedby="basic-addon3">
+                                            </div>
+                                            
+                                            <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text ">사이트 명</span>
+                                              </div>
+                                              <input type="text" class="form-control D_sitename" name="D_sitename">
+                                              
+                                            </div>
+                                            
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <input type="submit" class="btn btn-primary D_bookmark_save" value="save" data-dismiss="modal">
+                                        </div>
+                                    </div>
+                                    
+                                    </div>
+                                    
+                                </div>
+                        </div>
+
+                    </DL><p>
+                </DL><p>
+                <!-- Button trigger modal -->
+
+      
+      <!-- Modal -->
+      
+            </div>
             <div class="D_sidebar_sub_test D_sidebar_sub_plus"></div>
             <div class="D_sidebar_sub_test D_sidebar_sub_music"></div>
         </div>
@@ -184,10 +240,14 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="Dallmoon_script.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleSectionalElementInit&ug=section&hl=ko"></script>
     <script src="./malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js"></script>
-    
     <script src="./Material-Design-Calculator-jQuery/js/calculate.js"></script>
+    <script src="./Count-Up-Timer-Stopwatch-jQuery-Countimer/dist/ez.countimer.min.js"></script>
+    <script src="Dallmoon_script.js"></script>
+    
+
+    
+
 </body>
 </html>
