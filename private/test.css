@@ -1,0 +1,16 @@
+@charset "utf-8";
+.test_out{
+    background: black;
+    width:300px;
+    height:300px;
+    padding:100px;
+    box-sizing: border-box;
+    border:5px solid violet;
+}
+.test_in{
+    background:pink;
+    width:240px;
+    height:240px;
+    padding:10px;
+    margin:20px;
+}
