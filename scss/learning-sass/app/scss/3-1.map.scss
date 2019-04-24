@@ -1,0 +1,28 @@
+$colors: (
+  light: #ccc,
+  dark: #000
+);
+ 
+$brand-colors: (
+  main: red,
+  alternative: blue
+);
+
+$merged: map-merge($colors, $brand-colors);
+
+.elemnt::before {
+  color: map-get($colors, light);
+  background-color: map-get($colors, dark);
+}
+
+.elemnt::after {
+  color: map-get($brand-colors, main);
+  background-color: map-get($brand-colors, alternative);
+}
+
+.element {
+  color: map-get($merged, light);
+  background-color: map-get($merged, dark);
+  border-color: map-get($merged, main);
+  content: map-get($merged, alternative);
+}
