@@ -12,7 +12,7 @@ module.exports = {
     // 0 "off", 1 "warn" 2 "error"
     'no-console': 'warn',
     'quotes': ['error', 'single'],
-    'linebreak-style': 0,
+    'linebreak-style': 1,
     'no-underscore-dangle': 'warn',
     'no-plusplus': ['error', { 'allowForLoopAfterthoughts': true }],
     'comma-dangle': ['error', 'never']
