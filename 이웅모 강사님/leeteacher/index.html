@@ -5,10 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script src="foo_1.js"></script>
-  <script src="foo_2.js"></script>
 </head>
 <body>
-  
+  <input type="text" class="input-todo" placeholder="할 일을 입력하세요">
+  <button class="add">추가</button>
+  <ul class="todos"></ul>
+  <script>
+    const $inputTodo = document.querySelector('.input-todo');
+    const $add = document.querySelector('.add');
+    const $todos = document.querySelector('.todos');
+    console.log($todos)
+
+    function removeTodo(childNode) {
+      $todos.removeChild(childNode);
+    }
+    // line through
+    $todos.addEventListener('click', function (e) {
+      if (e.target.className === 'remove') removeTodo(e.target.parentNode);
+    });
+
+    $todos.addEventListener('change', function (e) {
+      if (e.target.checked === true) e.target.parentNode.style.textDecoration = 'line-through';
+      if (e.target.checked === false) e.target.parentNode.style.textDecoration = '';
+    });
+
+    function addTodo(newTodo) {
+      $todos.innerHTML += `<li><input type="checkbox">${newTodo}<button class="remove">x</button></li>`;
+    }
+
+    $add.onclick = function () {
+      addTodo($inputTodo.value);
+      $inputTodo.value = '';
+    };
+  </script>
 </body>
 </html>

@@ -57,3 +57,25 @@
 // console.log(fixFloat(10.12345, 2).toString(10));
 
 // 카멜케이스의 문자열을 입력받아 snake케이스로 바꾸기
+
+
+// 클릭한 인덱스를 받으면 됨.
+// 카운트 - 3 말고 클릭한 인덱스들 라인이 전부 1이면
+const arr = [[1, 1, 0], [0, 1, 0], [0, 1, 0]];
+const evIndex = 1; // HTML에서 id값을 이용하여 해당 리스트의 인덱스를 읽어와야함.
+function bingoCount(eventIndex) {
+  let cnt = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i][eventIndex] === 1) cnt += 1;
+  }
+  return cnt;
+}
+
+
+function bingoConsole(count) {
+  if (bingoCount(count) === 3) {
+    console.log('bingo');
+  }
+}
+bingoConsole(evIndex);
+// console.log('Bingo');
