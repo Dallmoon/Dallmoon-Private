@@ -15,6 +15,8 @@ module.exports = {
     'linebreak-style': 1,
     'no-underscore-dangle': 'warn',
     'no-plusplus': ['error', { 'allowForLoopAfterthoughts': true }],
-    'comma-dangle': ['error', 'never']
+    'comma-dangle': ['error', 'never'],
+    'func-names' : 0,
+    'prefer-arrow-callback' : 0,
   }
 };

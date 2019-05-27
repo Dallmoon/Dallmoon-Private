@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,36 +7,44 @@
   <title>Document</title>
 </head>
 <body>
-  <input type="text" class="input-todo" placeholder="할 일을 입력하세요">
+  <input type="text" class="input-todo" placeholder="할 일을 입력하세요.">
   <button class="add">추가</button>
   <ul class="todos"></ul>
-  <script>
+  <script type="module">// 전역변수를 없앰.
     const $inputTodo = document.querySelector('.input-todo');
     const $add = document.querySelector('.add');
     const $todos = document.querySelector('.todos');
-    console.log($todos)
+    // console.log($todos)
 
-    function removeTodo(childNode) {
-      $todos.removeChild(childNode);
+    function removeTodo($childNode) {
+      $todos.removeChild($childNode);
     }
+    function addTodo(newTodo) {
+      $todos.innerHTML += `<li><input type="checkbox">${newTodo}<button class="remove">x</button></li>`;
+    }
+    
+    // 통일 시켜주는게 좋음
+    $add.onclick = function () {
+      addTodo($inputTodo.value);
+      $inputTodo.value = '';
+    };
+
     // line through
     $todos.addEventListener('click', function (e) {
       if (e.target.className === 'remove') removeTodo(e.target.parentNode);
     });
 
     $todos.addEventListener('change', function (e) {
-      if (e.target.checked === true) e.target.parentNode.style.textDecoration = 'line-through';
-      if (e.target.checked === false) e.target.parentNode.style.textDecoration = '';
+      if (e.target.checked) {
+        e.target.parentNode.style.textDecoration = 'line-through';
+        e.target.setAttribute('checked', 'checked');
+      }
+      else {
+        e.target.parentNode.style.textDecoration = '';
+        e.target.removeAttribute('checked');
+      }
     });
 
-    function addTodo(newTodo) {
-      $todos.innerHTML += `<li><input type="checkbox">${newTodo}<button class="remove">x</button></li>`;
-    }
-
-    $add.onclick = function () {
-      addTodo($inputTodo.value);
-      $inputTodo.value = '';
-    };
   </script>
 </body>
 </html>
