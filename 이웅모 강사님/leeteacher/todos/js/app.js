@@ -3,29 +3,49 @@ let todos = [
   { id: 2, content: 'CSS', completed: true },
   { id: 3, content: 'Javascript', completed: false }
 ];
+let status = 'all';
+// DOMs
 
 const $todos = document.querySelector('.todos');
 const $inputTodo = document.querySelector('.input-todo');
 const $completeAll = document.querySelector('.complete-all');
 const $completedTodos = document.querySelector('.completed-todos');
 const $activeTodos = document.querySelector('.active-todos');
-const $clearCompleted = document.querySelector('.clear-completed');
+const $clearCompleted = document.querySelector('.clear-completed > .btn');
+const $nav = document.querySelector('.nav');
 
 function countCompleted() {
-  $activeTodos.textContent = todos.filter(todo => todo.completed).length;
+  $activeTodos.textContent = todos.filter(todo => !todo.completed).length;
   $completedTodos.textContent = todos.filter(todo => todo.completed).length;
 }
 
 function render() {
   let html = '';
-  todos.forEach(function (todo) {
+  let activeTodo = [...todos];
+
+  if (status === 'active') {
+    activeTodo = todos.filter(function (todo) {
+      return !todo.completed ? todo : '';
+    });
+  } else if (status === 'completed') {
+    activeTodo = todos.filter(function (todo) {
+      return todo.completed ? todo : '';
+    });
+  } else {
+    status = 'all';
+  }
+
+
+  activeTodo.forEach(function (todo) {
     html += `<li id="${todo.id}" class="todo-item">
     <input class="custom-checkbox" type="checkbox" id="ck-${todo.id}" ${todo.completed ? 'checked' : ''}>
     <label for="ck-${todo.id}">${todo.content}</label>
     <i class="remove-todo far fa-times-circle"></i>
   </li>`;
   });
+
   $todos.innerHTML = html;
+
   countCompleted();
 }
 
@@ -68,15 +88,32 @@ function completeAll(e) {
 }
 
 function clearAll() {
-  todos = todos.filter(todo => { return todo.completed ? '' : todo; });
+  todos = todos.filter(todo => (todo.completed ? '' : todo));
+  render();
+}
+
+function clickNav(e) {
+  if (e.target.nodeName !== 'LI') return;
+  [...$nav.children].forEach(function ($navItem) {
+    $navItem.classList.remove('active');
+  });
+
+  e.target.classList = 'active';
+  status = e.target.id;
   render();
 }
 
 
-$todos.addEventListener('click', removeItem);
-$todos.addEventListener('change', checkItem);
 $inputTodo.addEventListener('keyup', addItem);
+
+$todos.addEventListener('click', removeItem);
+
+$todos.addEventListener('change', checkItem);
+
 $completeAll.addEventListener('change', completeAll);
+
 $clearCompleted.addEventListener('click', clearAll);
+
+$nav.addEventListener('click', clickNav);
 
 render();
