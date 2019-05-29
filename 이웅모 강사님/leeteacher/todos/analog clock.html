@@ -37,6 +37,7 @@
 
     .second {
       background-color: #9e9e9e;
+      /* transform: rotate(720deg); */
     }
 
     .center-circle {
@@ -73,10 +74,13 @@
 
   <script>
     const $digitalclock = document.querySelector('.digital-clock');
-    let second = 0;
-    let minute = 0;
-    let hour = 0;
-    function stopWatch() {
+    const date = new Date();
+
+    let second = date.getSeconds();
+    let minute = date.getMinutes();
+    let hour = date.getHours();
+
+    function clock() {
       setInterval(function () {
         if (second < 59) {
           second += 1;
@@ -90,12 +94,17 @@
           hour += 1;
         }
 
-        if (hour === 60) hour = 0;
+        if (hour === 24) hour = 0;
 
-        $digitalclock.innerHTML = `${('0' + hour).slice(-2)}:${('0' + minute).slice(-2)}:${('0' + second).slice(-2)}`;
+        document.querySelector('.hour').style.transform = `rotate(${30 * hour}deg)`;
+        document.querySelector('.minute').style.transform = `rotate(${6 * minute}deg)`;
+        document.querySelector('.second').style.transform = `rotate(${6 * second}deg)`;
+
+        if (hour <= 12) $digitalclock.innerHTML = `오전 ${('0' + hour).slice(-2)}:${('0' + minute).slice(-2)}:${('0' + second).slice(-2)}`;
+        else $digitalclock.innerHTML = `오후 ${('0' + (hour - 12)).slice(-2)}:${('0' + minute).slice(-2)}:${('0' + second).slice(-2)}`;
       }, 1000);
     }
-    stopWatch();
+    clock();
   </script>
 </body>
 </html>
