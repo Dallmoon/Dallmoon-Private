@@ -96,8 +96,8 @@
 
         if (hour === 24) hour = 0;
 
-        document.querySelector('.hour').style.transform = `rotate(${30 * hour}deg)`;
-        document.querySelector('.minute').style.transform = `rotate(${6 * minute}deg)`;
+        document.querySelector('.hour').style.transform = `rotate(${30 * hour + 0.5 * minute}deg)`;
+        document.querySelector('.minute').style.transform = `rotate(${6 * minute + 0.1 * second}deg)`;
         document.querySelector('.second').style.transform = `rotate(${6 * second}deg)`;
 
         if (hour <= 12) $digitalclock.innerHTML = `오전 ${('0' + hour).slice(-2)}:${('0' + minute).slice(-2)}:${('0' + second).slice(-2)}`;

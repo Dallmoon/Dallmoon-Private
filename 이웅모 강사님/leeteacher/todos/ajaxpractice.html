@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main"></div>
+  <script>
+    const $main = document.querySelector('.main');
+
+    function render(element) {
+      // console.log(JSON.stringify(element, null, 2));
+      $main.innerText = JSON.stringify(element, null, 2);
+    }
+
+    // function ajax(method, URL, payload, callback = render) {
+    //   const xhr = new XMLHttpRequest();
+
+    //   xhr.open(method, URL);
+    //   xhr.setRequestHeader('Content-Type', 'application/json');
+    //   xhr.send(JSON.stringify(payload));
+    
+    //   if (method == 'POST' && !payload) {
+    //     console.log('error!');
+    //     return;
+    //   }
+    //   xhr.onreadystatechange = function () {
+    //     if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    //     if (xhr.status < 200 || xhr.status >= 400) return;
+
+    //     callback(JSON.parse(xhr.response));
+    //   };
+    // }
+    // ajax('GET', 'http://localhost:5000/todos/');
+    
+
+    // const PromiseAjax = (method, URL, payload) => {
+    //   const xhr = new XMLHttpRequest();
+    //   return new Promise((resolve, reject) => {
+    //     xhr.open(method, URL);
+    //     xhr.setRequestHeader('Content-Type', 'application/json');
+    //     xhr.send(JSON.stringify(payload));
+
+    //     xhr.onreadystatechange = function () {
+    //       if (xhr.readyState !== XMLHttpRequest.DONE) return;
+
+    //       // 오류 코드
+    //       // reject(console.log('error'));
+    //       // if (xhr.status < 200 || xhr.status >= 400) return;
+
+    //       if (xhr.status < 200 || xhr.status >= 400) {
+    //         reject(new Error(xhr.status));
+    //       } resolve(JSON.parse(xhr.response));
+    //     };
+    //   });
+    // };
+    // PromiseAjax('POST', 'http://localhost:5000/todos/', { id: 4, content: 'javascript', completed: false })
+    //   .then(render)
+    //   .catch(error => new Error(error));
+
+    // fetch('http://localhost:5000/todos/', {
+    //   method: 'GET',
+    //   headers: { 'Content-Type': 'application/json' }
+    // })
+    //   .then(res => res.json())
+    //   .then(render)
+    //   .catch();
+    
+    // fetch('http://localhost:5000/todos/', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ id: 10, content: 'angular', completed: true })
+    // })
+    //   .then(res => res.json())
+    //   .then(render)
+    //   .catch(console.log);
+    
+    // fetch('http://localhost:5000/todos/4', {
+    //   method: 'DELETE',
+    //   headers: { 'Content-Type': 'application/json' }
+    // })
+    //   .then(res => res.json())
+    //   .then(render)
+    //   .catch();
+
+
+    (async function () {
+      const res = await fetch('http://localhost:5000/todos/');
+      const getTodos = await res.json();
+      render(getTodos);
+    }());
+
+    
+    // (async function () {
+    //   const res = await fetch('http://localhost:5000/todos/', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ id: 4, content: 'react', completed: false })
+    //   });
+    //   const getTodos = await res.json();
+    //   render(getTodos);
+    // }());
+
+    
+    // (async function () {
+    //   const res = await fetch('http://localhost:5000/todos/5', {
+    //     method: 'PATCH',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ completed: false })
+    //   });
+    //   const getTodos = await res.json();
+    //   render(getTodos);
+    // }());
+
+    
+    (async function () {
+      const res = await fetch('http://localhost:5000/todos/5', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      const getTodos = await res.json();
+      render(getTodos);
+    }());
+  </script>
+</body>
+</html>
