@@ -70,10 +70,6 @@ function numberOfPrime(n) {
   const nList = [];
   const primeList = [];
 
-  for (let i = 1; i <= n; i++) {
-    nList.push(i);
-  }
 
-  nList.filter(item => console.log(item));
 }
 console.log(numberOfPrime(10)); // 4
