@@ -11,7 +11,6 @@ const $activeTodos = document.querySelector('.active-todos');
 const $clearCompleted = document.querySelector('.clear-completed > .btn');
 const $nav = document.querySelector('.nav');
 
-// render
 
 function generateId(content) {
   id = content.length ? Math.max(...content.map(todo => todo.id)) + 1 : 1;
@@ -19,6 +18,7 @@ function generateId(content) {
 
 function render(content) {
   let html = '';
+  todos = content;
   let activeTodo = [];
   // console.log(content);
 
@@ -32,7 +32,7 @@ function render(content) {
   }
 
 
-  activeTodo.forEach(todo => {
+  activeTodo.forEach(function (todo) {
     html += `<li id="${todo.id}" class="todo-item">
     <input class="custom-checkbox" type="checkbox" id="ck-${todo.id}" ${todo.completed ? 'checked' : ''}>
     <label for="ck-${todo.id}">${todo.content}</label>
@@ -47,25 +47,20 @@ function render(content) {
   generateId(content);
 }
 
-// Ajax
 
-function getTodos(item) {
-  todos = item;
-  render(todos);
+function getTodos() {
+  // fetch('/todos')
+  //   .then(res => res.json())
+  //   .then(render)
+  //   .catch();
+  fetch('/todos')
+    .then(res => res.json())
+    .then(render)
+    .catch(console.log('error'));
 }
 
-fetch('todos/', {
-  method: 'GET',
-  headers: { 'Content-Type': 'application/json' }
-})
-  .then(res => res.json())
-  .then(getTodos)
-  .catch(console.log);
-
-window.onload = render(todos);
-
 function AjaxGET() {
-  fetch('todos/', {
+  fetch('http://localhost:9000/todos/', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   })
@@ -75,7 +70,7 @@ function AjaxGET() {
 }
 
 function AjaxPOST(num, str, boolean) {
-  fetch('todos/', {
+  fetch('http://localhost:9000/todos/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ id: num, content: str, completed: boolean })
@@ -86,7 +81,7 @@ function AjaxPOST(num, str, boolean) {
 }
 
 // function AjaxPATCH(num, str, boolean) {
-//   fetch(`todos/${num}`, {
+//   fetch(`http://localhost:9000/todos/${num}`, {
 //     method: 'PATCH',
 //     headers: { 'Content-Type': 'application/json' },
 //     body: JSON.stringify({ id: num, content: str, completed: boolean })
@@ -97,8 +92,8 @@ function AjaxPOST(num, str, boolean) {
 // }
 
 function AjaxPUT(num, obj) {
-  fetch(`todos/${num}`, {
-    method: 'PATCH',
+  fetch(`http://localhost:9000/todos/${num}`, {
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(obj)
   })
@@ -108,7 +103,7 @@ function AjaxPUT(num, obj) {
 }
 
 function AjaxDELETE(num) {
-  fetch(`todos/${num}`, {
+  fetch(`http://localhost:9000/todos/${num}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
@@ -117,7 +112,6 @@ function AjaxDELETE(num) {
     .catch(console.log);
 }
 
-// EventHandler
 
 function removeItem(e) {
   if (!e.target.classList.contains('remove-todo')) return;
@@ -125,7 +119,7 @@ function removeItem(e) {
 }
 
 function checkItem(e) {
-  AjaxPUT(e.target.parentNode.id, { completed: e.target.checked });
+  AjaxPUT(e.target.parentNode.id, { completed: !e.target.checked });
   // console.log(e.target);
   // console.log(e.target.parentNode.id);
 }
@@ -139,7 +133,7 @@ function addItem(e) {
 
 function completeAll(e) {
   if (e.target.checked) {
-    fetch('todos/', {
+    fetch('http://localhost:9000/todos/', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: true })
@@ -148,7 +142,7 @@ function completeAll(e) {
       .then(render)
       .catch(console.log);
   } else {
-    fetch('todos/', {
+    fetch('http://localhost:9000/todos/', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: false })
@@ -160,14 +154,13 @@ function completeAll(e) {
 }
 
 function clearAll() {
-  fetch('todos/completed', {
+  fetch('http://localhost:9000/todos/completed', {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
     .then(res => res.json())
     .then(render)
     .catch(console.log);
-  $completeAll.firstElementChild.checked = false;
 }
 
 function clickNav(e) {
@@ -179,7 +172,6 @@ function clickNav(e) {
   AjaxGET();
 }
 
-// EventListener
 
 $inputTodo.addEventListener('keyup', addItem);
 
@@ -192,3 +184,13 @@ $completeAll.addEventListener('change', completeAll);
 $clearCompleted.addEventListener('click', clearAll);
 
 $nav.addEventListener('click', clickNav);
+
+fetch('http://localhost:9000/todos/', {
+  method: 'GET',
+  headers: { 'Content-Type': 'application/json' }
+})
+  .then(res => res.json())
+  .then(getTodos)
+  .catch(console.log);
+
+window.onload = render(todos);

@@ -1,8 +1,21 @@
-let todos = [];
+// let todos = [];
+
+// function getTodos(item) {
+//   todos = item;
+// }
+// fetch('http://localhost:4500/todos/', {
+//   method: 'GET',
+//   headers: { 'Content-Type': 'application/json' }
+// })
+//   .then(res => res.json())
+//   .then(getTodos)
+//   .catch(console.log);
+
+// console.log(todos);
 let id = 0;
 let status = 'all';
-
 // DOMs
+
 const $todos = document.querySelector('.todos');
 const $inputTodo = document.querySelector('.input-todo');
 const $completeAll = document.querySelector('.complete-all');
@@ -11,28 +24,26 @@ const $activeTodos = document.querySelector('.active-todos');
 const $clearCompleted = document.querySelector('.clear-completed > .btn');
 const $nav = document.querySelector('.nav');
 
-// render
 
-function generateId(content) {
-  id = content.length ? Math.max(...content.map(todo => todo.id)) + 1 : 1;
+function generateId(todos) {
+  id = todos.length ? Math.max(...todos.map(todo => todo.id)) + 1 : 1;
 }
 
-function render(content) {
+function render(todos) {
   let html = '';
   let activeTodo = [];
-  // console.log(content);
 
   if (status === 'active') {
-    activeTodo = content.filter(todo => (!todo.completed ? todo : ''));
+    activeTodo = todos.filter(todo => (!todo.completed ? todo : ''));
   } else if (status === 'completed') {
-    activeTodo = content.filter(todo => (todo.completed ? todo : ''));
+    activeTodo = todos.filter(todo => (todo.completed ? todo : ''));
   } else {
     status = 'all';
-    activeTodo = content;
+    activeTodo = todos;
   }
 
 
-  activeTodo.forEach(todo => {
+  activeTodo.forEach(function (todo) {
     html += `<li id="${todo.id}" class="todo-item">
     <input class="custom-checkbox" type="checkbox" id="ck-${todo.id}" ${todo.completed ? 'checked' : ''}>
     <label for="ck-${todo.id}">${todo.content}</label>
@@ -41,31 +52,14 @@ function render(content) {
   });
 
   $todos.innerHTML = html;
-  $completedTodos.innerHTML = [...content.filter(todo => todo.completed)].length;
-  $activeTodos.innerHTML = [...content.filter(todo => !todo.completed)].length;
+  $completedTodos.innerHTML = [...todos.filter(todo => todo.completed)].length;
+  $activeTodos.innerHTML = [...todos.filter(todo => !todo.completed)].length;
   // console.log();
-  generateId(content);
+  generateId(todos);
 }
-
-// Ajax
-
-function getTodos(item) {
-  todos = item;
-  render(todos);
-}
-
-fetch('todos/', {
-  method: 'GET',
-  headers: { 'Content-Type': 'application/json' }
-})
-  .then(res => res.json())
-  .then(getTodos)
-  .catch(console.log);
-
-window.onload = render(todos);
 
 function AjaxGET() {
-  fetch('todos/', {
+  fetch('http://localhost:4500/todos/', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   })
@@ -75,7 +69,7 @@ function AjaxGET() {
 }
 
 function AjaxPOST(num, str, boolean) {
-  fetch('todos/', {
+  fetch('http://localhost:4500/todos/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ id: num, content: str, completed: boolean })
@@ -86,7 +80,7 @@ function AjaxPOST(num, str, boolean) {
 }
 
 // function AjaxPATCH(num, str, boolean) {
-//   fetch(`todos/${num}`, {
+//   fetch(`http://localhost:4500/todos/${num}`, {
 //     method: 'PATCH',
 //     headers: { 'Content-Type': 'application/json' },
 //     body: JSON.stringify({ id: num, content: str, completed: boolean })
@@ -97,8 +91,8 @@ function AjaxPOST(num, str, boolean) {
 // }
 
 function AjaxPUT(num, obj) {
-  fetch(`todos/${num}`, {
-    method: 'PATCH',
+  fetch(`http://localhost:4500/todos/${num}`, {
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(obj)
   })
@@ -108,7 +102,7 @@ function AjaxPUT(num, obj) {
 }
 
 function AjaxDELETE(num) {
-  fetch(`todos/${num}`, {
+  fetch(`http://localhost:4500/todos/${num}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
@@ -117,7 +111,6 @@ function AjaxDELETE(num) {
     .catch(console.log);
 }
 
-// EventHandler
 
 function removeItem(e) {
   if (!e.target.classList.contains('remove-todo')) return;
@@ -125,7 +118,7 @@ function removeItem(e) {
 }
 
 function checkItem(e) {
-  AjaxPUT(e.target.parentNode.id, { completed: e.target.checked });
+  AjaxPUT(e.target.parentNode.id, { completed: !e.target.checked });
   // console.log(e.target);
   // console.log(e.target.parentNode.id);
 }
@@ -139,7 +132,7 @@ function addItem(e) {
 
 function completeAll(e) {
   if (e.target.checked) {
-    fetch('todos/', {
+    fetch('http://localhost:4500/todos/', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: true })
@@ -148,7 +141,7 @@ function completeAll(e) {
       .then(render)
       .catch(console.log);
   } else {
-    fetch('todos/', {
+    fetch('http://localhost:4500/todos/', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: false })
@@ -160,14 +153,13 @@ function completeAll(e) {
 }
 
 function clearAll() {
-  fetch('todos/completed', {
+  fetch('http://localhost:4500/todos/completed', {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
     .then(res => res.json())
     .then(render)
     .catch(console.log);
-  $completeAll.firstElementChild.checked = false;
 }
 
 function clickNav(e) {
@@ -179,7 +171,6 @@ function clickNav(e) {
   AjaxGET();
 }
 
-// EventListener
 
 $inputTodo.addEventListener('keyup', addItem);
 
@@ -192,3 +183,5 @@ $completeAll.addEventListener('change', completeAll);
 $clearCompleted.addEventListener('click', clearAll);
 
 $nav.addEventListener('click', clickNav);
+
+window.onload = AjaxGET();
