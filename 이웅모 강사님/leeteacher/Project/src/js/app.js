@@ -1,8 +1,11 @@
+// status
+
 let todos = [];
 let id = 0;
 let status = 'all';
 
 // DOMs
+
 const $todos = document.querySelector('.todos');
 const $inputTodo = document.querySelector('.input-todo');
 const $completeAll = document.querySelector('.complete-all');
@@ -22,15 +25,20 @@ function render(content) {
   let activeTodo = [];
   // console.log(content);
 
-  if (status === 'active') {
-    activeTodo = content.filter(todo => (!todo.completed ? todo : ''));
-  } else if (status === 'completed') {
-    activeTodo = content.filter(todo => (todo.completed ? todo : ''));
-  } else {
-    status = 'all';
-    activeTodo = content;
-  }
+  // if (status === 'active') {
+  //   activeTodo = content.filter(todo => (!todo.completed ? todo : ''));
+  // } else if (status === 'completed') {
+  //   activeTodo = content.filter(todo => (todo.completed ? todo : ''));
+  // } else {
+  //   status = 'all';
+  //   activeTodo = content;
+  // }
 
+  activeTodo = content.filter(todo => {
+    if (status === 'active') return !todo.completed;
+    if (status === 'completed') return todo.completed;
+    return true;
+  });
 
   activeTodo.forEach(todo => {
     html += `<li id="${todo.id}" class="todo-item">
@@ -64,37 +72,16 @@ fetch('todos/', {
 
 window.onload = render(todos);
 
-function AjaxGET() {
-  fetch('todos/', {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then(res => res.json())
-    .then(render)
-    .catch(console.log);
-}
-
-function AjaxPOST(num, str, boolean) {
+function AjaxPOST(num, str) {
   fetch('todos/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ id: num, content: str, completed: boolean })
+    body: JSON.stringify({ id: num, content: str, completed: false })
   })
     .then(res => res.json())
     .then(render)
     .catch(console.log);
 }
-
-// function AjaxPATCH(num, str, boolean) {
-//   fetch(`todos/${num}`, {
-//     method: 'PATCH',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify({ id: num, content: str, completed: boolean })
-//   })
-//     .then(res => res.json())
-//     .then(render)
-//     .catch(console.log);
-// }
 
 function AjaxPUT(num, obj) {
   fetch(`todos/${num}`, {
@@ -117,6 +104,28 @@ function AjaxDELETE(num) {
     .catch(console.log);
 }
 
+
+// function AjaxGET() {
+//   fetch('todos/', {
+//     method: 'GET',
+//     headers: { 'Content-Type': 'application/json' }
+//   })
+//     .then(res => res.json())
+//     .then(render)
+//     .catch(console.log);
+// }
+
+// function AjaxPATCH(num, str, boolean) {
+//   fetch(`todos/${num}`, {
+//     method: 'PATCH',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify({ id: num, content: str, completed: boolean })
+//   })
+//     .then(res => res.json())
+//     .then(render)
+//     .catch(console.log);
+// }
+
 // EventHandler
 
 function removeItem(e) {
@@ -127,7 +136,7 @@ function removeItem(e) {
 function checkItem(e) {
   AjaxPUT(e.target.parentNode.id, { completed: e.target.checked });
   // console.log(e.target);
-  // console.log(e.target.parentNode.id);
+  console.log(typeof e.target.parentNode.id);
 }
 
 function addItem(e) {
@@ -176,7 +185,8 @@ function clickNav(e) {
 
   e.target.classList = 'active';
   status = e.target.id;
-  AjaxGET();
+  render(todos);
+  // AjaxGET();
 }
 
 // EventListener
