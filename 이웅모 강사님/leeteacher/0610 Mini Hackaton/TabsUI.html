@@ -97,16 +97,12 @@
       renderTabs() {
         const html = `
           <ul class="tab-group">
-          ${this.tabsData.map(tab =>
-            `<li class="tab${tab.active ? ' active' : ''}">
+          ${this.tabsData.map(tab => `<li class="tab${tab.active ? ' active' : ''}">
               <i class="icon ${tab.iconClass}"></i>${tab.title}
-            </li>`
-          ).join('')}
+            </li>`).join('')}
           </ul>
           <div class="tab-content-group">
-          ${this.tabsData.map(tab =>
-            `<div class="tab-content">${tab.content}</div>`
-          ).join('')}
+          ${this.tabsData.map(tab => `<div class="tab-content">${tab.content}</div>`).join('')}
           </div>`;
 
         document.querySelector('.tabs').insertAdjacentHTML('beforeend', html);
