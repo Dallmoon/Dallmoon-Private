@@ -36,20 +36,11 @@
 // =-================================================
 
 // function findDuplicated(array) {
-// 미완성
-//   const copied = [];
-
-//   array.forEach(element => (copied.includes(element) ? '' : copied.push(element)));
-//   copied.forEach(element => {
-//     console.log(element);
-//     array.includes(element) ? array.shift(element) : ''});
-//   return array;
-
-// return array.filter((v, i, self) => self.indexOf(v) !== i);
+// // 인수로 전달된 배열의 요소 중에서 중복된 요소만으로 구성된 배열을 반환하는 함수를 작성하라. for 문은 사용하지 않도록 하자.
+//   return array.filter((v, i, self) => self.indexOf(v) !== i);
+// // ㅠㅠ
 // }
-
 // console.log(findDuplicated([1, 2, 3, 4, 1, 2, 3, 3, 7])); // [ 1, 2, 3 ]
-
 
 // ==========================================
 
@@ -66,10 +57,44 @@
 
 // =========================================================
 
-function numberOfPrime(n) {
-  const nList = [];
-  const primeList = [];
+// function numberOfPrime(n) {
+//   let nList = [];
+//   const primeList = [];
+//   if (n < 2) return;
+//   for (let i = 2; i <= n; i++) {
+//     nList = [...nList, i];
+//   }
+//   console.log(nList);
+//   nList.forEach((num) => {
+//     for (let i = 1; i <= n; i++) {
+//       num % n ===
+//     }
+//   })
 
+// }
+// console.log(numberOfPrime(10)); // 4
 
-}
-console.log(numberOfPrime(10)); // 4
+// ==================================================
+
+// function fibonacci(n) {
+//   if (n === 1 || n === 2) return 1;
+//   return fibonacci(n - 1) + fibonacci(n - 2);
+// }
+
+// console.log(fibonacci(2)); // 1
+// console.log(fibonacci(3)); // 2
+// console.log(fibonacci(4)); // 3
+// console.log(fibonacci(5)); // 5
+// console.log(fibonacci(6)); // 8
+
+// =====================================================
+
+// function digitSum(n) {
+//   // console.log([...n.toString()]);
+//   if (n < 0 || n > 100000000) return false;
+//   return [...n.toString()].reduce((pre, cur) => pre * 1 + cur * 1);
+// }
+
+// console.log(digitSum(123)); // 6
+// console.log(digitSum(987)); // 24
+// console.log(digitSum(100000001)); // false

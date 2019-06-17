@@ -36,10 +36,10 @@ function render() {
   }
 
 
-  activeTodo.forEach(function (todo) {
-    html += `<li id="${todo.id}" class="todo-item">
-    <input class="custom-checkbox" type="checkbox" id="ck-${todo.id}" ${todo.completed ? 'checked' : ''}>
-    <label for="ck-${todo.id}">${todo.content}</label>
+  activeTodo.forEach(function ({ id, content, completed }) {
+    html += `<li id="${id}" class="todo-item">
+    <input class="custom-checkbox" type="checkbox" id="ck-${id}" ${completed ? 'checked' : ''}>
+    <label for="ck-${id}">${content}</label>
     <i class="remove-todo far fa-times-circle"></i>
   </li>`;
   });
