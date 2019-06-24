@@ -98,3 +98,129 @@
 // console.log(digitSum(123)); // 6
 // console.log(digitSum(987)); // 24
 // console.log(digitSum(100000001)); // false
+
+// ======================================
+
+// function isHarshad(n) {
+//   const x = [...n.toString()].reduce((pre, cur) => pre * 1 + cur * 1);
+//   return Number.isInteger(n / x);
+// }
+
+// console.log(isHarshad(10)); // true
+// console.log(isHarshad(12)); // true
+// console.log(isHarshad(18)); // true
+// console.log(isHarshad(11)); // false
+// console.log(isHarshad(13)); // false
+
+// ============================================
+
+// function generateRange(from, to) {
+//   const res = [];
+//   for (let i = from; i <= to; i++) {
+//     res.push(i);
+//   }
+//   return res;
+// }
+
+// console.log(generateRange(10, 15)); // [ 10, 11, 12, 13, 14, 15 ]
+
+// ======================================================
+
+// ㅠㅠ
+
+// function adder(x, y) {
+// let res = [];
+// const k = Math.abs(x - y); // 범위 설정
+// for(let i = 0; i <= k; i++) {
+
+// }
+//   return Array.from({ length: Math.abs(x - y) + 1 }, (v, i) => i + (x > y ? y : x))
+//     .reduce((pre, cur) => pre + cur);
+// }
+
+
+// console.log(adder(5, 5)); // 12
+
+// ===================================
+
+// function adjacentElementsProduct(arr) {
+//   const foo = [];
+//   arr.reduce((pre, cur) => {
+//     foo.push(pre * cur);
+//     return cur;
+//   });
+
+//   return Math.max(...foo);
+// }
+
+// console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3])); // 21
+
+// ==========================
+
+// function getArray(arr) {
+//   let foo = [];
+//   foo = arr.filter(elem => !(elem % 2) && elem > 3);
+
+//   return foo;
+// }
+
+// console.log(getArray([1, 2, 3, 4, 5, 6])); // [ 4, 6 ]
+
+// ===========================================
+
+// function average(array) {
+//   let foo = [];
+//   return array.reduce((pre, cur) => pre + cur) / array.length;
+// }
+
+// console.log(average([5, 3, 4])); // 4
+
+// =======================================
+
+// function findMinDistance(array) {
+//   const firstElem = array[0];
+//   const lastElem = array[array.length - 1];
+//   let Min = lastElem - firstElem;
+
+//   let foo = [];
+//   array.reduce((pre, cur) => {
+//     if (cur - pre < Min) {
+//       foo = [];
+//       Min = cur - pre;
+//       foo.push([pre, cur]);
+//     } else if (cur - pre === Min) {
+//       foo.push([pre, cur]);
+//     }
+//     return cur;
+//   });
+//   return foo;
+// }
+
+// // 1차원 점의 배열
+// var array = [1, 3, 4, 8, 13, 17, 20, 23, 24];
+// console.log(findMinDistance(array)); // [[3, 4], [23, 24]]
+
+// =============================
+
+// function specialSort(array) {
+//   const positive = [];
+//   const negative = [];
+
+//   array.forEach(elem => (elem < 0 ? negative.push(elem) : positive.push(elem)));
+//   positive.sort();
+//   negative.sort((a, b) => a <= b);
+
+//   // console.log(positive, negative);
+//   return [...negative, ...positive];
+// }
+
+// const testArray = [-1, 1, 3, -2, 2, 0];
+
+// console.log(testArray); // [ -1, 1, 3, -2, 2, 0 ]
+// console.log(specialSort(testArray)); // [ -1, -2, 0, 1, 2, 3 ]
+
+function getDayName(a, b){
+
+}
+
+console.log(getDayName(5, 24)); // TUE
