@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Popup</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Open Sans';
+      font-weight: 300;
+      background-color: #D6E1E5;
+    }
+
+    h1 {
+      color: #DB5B33;
+      font-weight: 300;
+      text-align: center;
+    }
+    .popup {
+      position: absolute;
+      width: 70vw;
+      height: 50vh;
+      background: #ffffff;
+      top: 20vh;
+      left: 15vw;
+      padding: 15px;
+      display: none;
+      z-index: 2;
+    }
+    .overlay {
+      background:rgba(0, 0, 0, 0.3);
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      display: none;
+    }
+    .btn-close {
+      position: absolute;
+      top: 10%;
+      right: 5%;
+    }
+    .active {
+      display: block;
+    }
+    .popup p {
+      display: block;
+      height: 50%;
+      margin: 20px 0;
+    }
+    /* CSS 작성 바랍니다. */
+  </style>
+</head>
+<body>
+  <h1>JavaScript Popup</h1>
+
+  <div class="popup">
+    <h1>JavaScript Popup</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+    <button class="btn-close">X</button>
+    <input type="text">
+    <button class="btn-ok">OK</button>
+    <button class="btn-cancel">Cancel</button>
+  </div>
+  <div class="overlay"></div>
+
+  <button class="toggle-popup">show popup</button>
+
+  <p class="popup-message"></p>
+  <script>
+    const $popup = document.querySelector('.popup');
+    const $btnClose = document.querySelector('.btn-close');
+    const $btnOk = document.querySelector('.btn-ok');
+    const $btnCancel = document.querySelector('.btn-cancel');
+    const $overlay = document.querySelector('.overlay');
+    const $togglePopup = document.querySelector('.toggle-popup');
+    const $body = document.querySelector('body');
+    const $popupMessage = document.querySelector('.popup-message');
+
+    function showPopup() {
+      $overlay.classList.add('active');
+      $popup.classList.add('active');
+    }
+
+    function hidePopup(e) {
+      if (e.target !== $btnCancel && e.target !== $btnClose && e.target !== $overlay && e.target !== $btnOk) return;
+      $overlay.classList.remove('active');
+      $popup.classList.remove('active');
+    }
+
+    function inputText(e) {
+      const input = e.target.parentNode.children[3].value.trim();
+      hidePopup(e);
+      if (!input) return;
+      $popupMessage.textContent = `form popup:${input}`;
+    }
+
+    $togglePopup.addEventListener('click', showPopup);
+    $body.addEventListener('click', hidePopup);
+    $btnOk.addEventListener('click', inputText);
+  </script>
+</body>
+</html>
